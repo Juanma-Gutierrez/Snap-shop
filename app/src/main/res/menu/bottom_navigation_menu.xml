@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_product_list"
+        android:icon="@drawable/baseline_create_24"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/navigation_categories"
+        android:icon="@drawable/baseline_format_list_bulleted_24"
+        android:title="@string/categories" />
+    <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/baseline_shopping_cart_24"
+        android:title="@string/cart" />
+</menu>
