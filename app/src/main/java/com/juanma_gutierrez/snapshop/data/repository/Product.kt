@@ -6,8 +6,8 @@ data class Product(
     val price: Double,
     val description: String,
     val category: String,
-    val image: String,
-    val rating: Rating,
+    val image: String?,
+    val rating: Rating?,
 )
 
 data class Rating(

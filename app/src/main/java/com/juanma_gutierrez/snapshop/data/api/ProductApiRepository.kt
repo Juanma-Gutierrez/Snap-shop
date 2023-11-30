@@ -10,7 +10,7 @@ class ProductApiRepository @Inject constructor(
     // Mapea cada item recibido para cargar el detalle del mismo.
     suspend fun getAll(): List<ProductApiModel> {
         val simpleList = service.api.getAll()
-        return simpleList.results.map { p ->
+        return simpleList.map { p ->
             service.api.getDetail(p.title).asApiModel()
         }
     }

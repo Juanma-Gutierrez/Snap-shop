@@ -10,10 +10,10 @@ import javax.inject.Singleton
 interface ProductApi {
     // ProductListResponse es la respuesta de la API
     @GET("products/")
-    suspend fun getAll(): ProductListResponse
+    suspend fun getAll(): List<ProductDetailResponse>
 
     // Devuelve uel detalle de un producto
-    @GET("product/{id}/")
+    @GET("products/{id}/")
     suspend fun getDetail(@Path("id") id: String): ProductDetailResponse
 }
 

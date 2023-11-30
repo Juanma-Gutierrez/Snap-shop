@@ -33,8 +33,6 @@ data class ProductsRepository @Inject constructor(
     // Las corrutinas no están asociadas a un hilo, es recomendable usar el contexto Dispatchers.IO
     suspend fun refreshList() = withContext(Dispatchers.IO) {
         val productsApiModelList = apiRepository.getAll()
-        // Devuelve una lista de PokemonApiModel y necesitamos mapearla
-        // para pasarla a localRepository
         localRepository.insert(productsApiModelList.asEntityModelList())
     }
 }
