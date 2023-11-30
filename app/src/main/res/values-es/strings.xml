@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Snap Shop</string>
+    <string name="products">Productos</string>
+    <string name="categories">Categorías</string>
+    <string name="cart">Carrito</string>
+    <string name="loading">Cargando...</string>
+    <string name="content_description">Imagen del artículo</string>
+</resources>

@@ -6,11 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.products.ProductListFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_fragment_product_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/product_item" />
+
     <LinearLayout
         android:id="@+id/llIsLoading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:visibility="visible"
         android:orientation="vertical">
 
         <TextView
@@ -27,12 +36,5 @@
             android:indeterminate="true" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fragment_pokemon_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/product_item" />
 
 </FrameLayout>

@@ -11,6 +11,9 @@ import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.ProductItemBinding
+import com.juanma_gutierrez.snapshop.services.Services
+import java.text.NumberFormat
+import java.util.Locale
 
 class ProductAdapter(
     private val dataset: List<Product>
@@ -39,8 +42,9 @@ class ProductAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val product = dataset[position]
+        val svc = Services()
         holder.tv_name.text = product.title
-        holder.tv_price.text = product.price.toString()
+        holder.tv_price.text = svc.formatPrice(product.price).toString()
         Glide.with(holder.itemView.context)
             .load(product.image)
             .into(holder.iv_image)
@@ -52,5 +56,6 @@ class ProductAdapter(
     override fun getItemCount(): Int {
         return dataset.size
     }
+
 
 }

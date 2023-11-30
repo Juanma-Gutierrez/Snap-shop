@@ -26,19 +26,19 @@ class ProductListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProductListBinding.inflate(inflater, container, false)
+        binding.llIsLoading.visibility = VISIBLE
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.llIsLoading.visibility = VISIBLE
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect {
                     Log.d("testing", "OnViewCreated en ProductListFragment it: ${it.size}")
                     binding.llIsLoading.visibility = View.GONE
                     val adapter = ProductAdapter(it)
-                    binding.rvFragmentPokemonList.adapter = adapter
+                    binding.rvFragmentProductList.adapter = adapter
                 }
             }
         }
