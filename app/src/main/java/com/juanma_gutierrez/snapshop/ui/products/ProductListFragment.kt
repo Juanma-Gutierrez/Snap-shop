@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.juanma_gutierrez.snapshop.adapter.ProductAdapter
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -22,18 +24,21 @@ class ProductListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProductListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.llIsLoading.visibility = VISIBLE
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect {
-                    Log.d("testing","OnViewCreated en ProductListFragment it: ${it.size}")
-                    binding.tvProductList.text = it.toString()
+                    Log.d("testing", "OnViewCreated en ProductListFragment it: ${it.size}")
+                    binding.llIsLoading.visibility = View.GONE
+                    val adapter = ProductAdapter(it)
+                    binding.rvFragmentPokemonList.adapter = adapter
                 }
             }
         }

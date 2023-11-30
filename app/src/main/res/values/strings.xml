@@ -5,4 +5,6 @@
     <string name="home">Inicio</string>
     <string name="categories">Categorias</string>
     <string name="cart">Carrito</string>
+    <string name="loading">Cargando...</string>
+    <string name="content_description">Imagen del artículo</string>
 </resources>
