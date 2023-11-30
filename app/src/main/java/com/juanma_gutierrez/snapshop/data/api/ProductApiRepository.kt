@@ -1,5 +1,6 @@
 package com.juanma_gutierrez.snapshop.data.api
 
+import android.util.Log
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -11,7 +12,8 @@ class ProductApiRepository @Inject constructor(
     suspend fun getAll(): List<ProductApiModel> {
         val simpleList = service.api.getAll()
         return simpleList.map { p ->
-            service.api.getDetail(p.title).asApiModel()
+            Log.d("testing","getAll: ${p.title}")
+            service.api.getDetail(p.id).asApiModel()
         }
     }
 }

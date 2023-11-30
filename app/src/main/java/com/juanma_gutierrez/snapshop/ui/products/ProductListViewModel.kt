@@ -1,5 +1,6 @@
 package com.juanma_gutierrez.snapshop.ui.products
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.juanma_gutierrez.snapshop.data.repository.Product
@@ -23,11 +24,13 @@ class ProductListViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 repository.refreshList()
+                Log.d("testing","ProductList: ${_productsList.value.size}")
             } catch (e: IOException) {
             }
         }
         viewModelScope.launch {
             repository.allProducts.collect {
+                Log.d("testing","ProductListViewModel: ${it.size}")
                 _productsList.value = it
             }
         }

@@ -1,6 +1,7 @@
 package com.juanma_gutierrez.snapshop.ui.products
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,7 @@ class ProductListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect {
+                    Log.d("testing","OnViewCreated en ProductListFragment it: ${it.size}")
                     binding.tvProductList.text = it.toString()
                 }
             }

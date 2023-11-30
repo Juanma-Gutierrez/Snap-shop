@@ -1,5 +1,6 @@
 package com.juanma_gutierrez.snapshop.data.repository
 
+import android.util.Log
 import com.juanma_gutierrez.snapshop.data.api.ProductApiRepository
 import com.juanma_gutierrez.snapshop.data.api.asEntityModelList
 import com.juanma_gutierrez.snapshop.data.local.ProductLocalRepository
@@ -28,11 +29,12 @@ data class ProductsRepository @Inject constructor(
             }
         }
 
-    // El código que se va a ejecutar deentro es suspendible en una corrutina
+    // El código que se va a ejecutar dentro es suspendible en una corrutina
     // Como es una operación de red, está obligado a hacerlo en el IO por el Dispatchers
     // Las corrutinas no están asociadas a un hilo, es recomendable usar el contexto Dispatchers.IO
     suspend fun refreshList() = withContext(Dispatchers.IO) {
         val productsApiModelList = apiRepository.getAll()
+        Log.d("testing","Tamaño de productsApiModelList: ${productsApiModelList.size}")
         localRepository.insert(productsApiModelList.asEntityModelList())
     }
 }
