@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_product_list"
-        android:icon="@drawable/baseline_create_24"
-        android:title="@string/home" />
+        android:icon="@drawable/baseline_shopping_bag_24"
+        android:title="@string/products" />
     <item
         android:id="@+id/navigation_categories"
         android:icon="@drawable/baseline_format_list_bulleted_24"
