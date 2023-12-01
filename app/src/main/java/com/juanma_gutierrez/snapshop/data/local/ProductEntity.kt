@@ -8,14 +8,14 @@ import com.juanma_gutierrez.snapshop.data.repository.Rating
 // Define cómo es la tabla products de la BBDD
 @Entity("product")
 data class ProductEntity(
-    @PrimaryKey val id: Long,
+    @PrimaryKey val id: Int,
     val title: String?,
     val price: Double?,
     val description: String?,
     val category: String?,
     val image: String?,
     val rate: Double?,
-    val count: Long?
+    val count: Int?
 ) {
     fun asProduct(): Product {
         return Product(

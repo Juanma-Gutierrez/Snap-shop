@@ -4,14 +4,14 @@ import com.juanma_gutierrez.snapshop.data.local.ProductEntity
 import com.juanma_gutierrez.snapshop.data.repository.Rating
 
 data class ProductApiModel(
-    val id: Long,
+    val id: Int,
     val name: String,
     val price: Double,
     val description: String,
     val category: String,
     val image: String,
     val rate: Double,
-    val count: Long,
+    val count: Int,
 )
 
 // Realiza el mapeo de List<ProductApiModel> a List<ProductEntity>
@@ -36,7 +36,7 @@ data class ProductListResponse(
 )
 
 data class ProductDetailResponse(
-    val id: Long,
+    val id: Int,
     val title: String,
     val price: Double,
     val description: String,

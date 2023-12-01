@@ -15,7 +15,7 @@ interface ProductApi {
 
     // Devuelve uel detalle de un producto
     @GET("products/{id}")
-    suspend fun getDetail(@Path("id") id: Long): ProductDetailResponse
+    suspend fun getDetail(@Path("id") id: Int): ProductDetailResponse
 }
 
 // Con Singleton se indica que es un provider tipo singleton

@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Product(
-    val id: Long,
+    val id: Int,
     val title: String,
     val price: Double,
     val description: String,
@@ -17,5 +17,5 @@ data class Product(
 @Parcelize
 data class Rating(
     val rate: Double,
-    val count: Long,
+    val count: Int,
 ) : Parcelable

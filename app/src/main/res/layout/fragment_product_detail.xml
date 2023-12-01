@@ -27,13 +27,14 @@
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <RatingBar
+                android:layout_marginVertical="@dimen/margin_mid"
                 android:id="@+id/rb_rating_stars"
                 style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:foregroundGravity="left"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_detail_image" />
 
             <TextView
                 android:id="@+id/tv_detail_count"
@@ -52,14 +53,14 @@
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_max"
                 android:background="@color/md_theme_dark_onPrimaryContainer"
                 android:gravity="center"
                 android:padding="@dimen/margin_mid"
+                android:layout_marginTop="@dimen/margin_mid"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_detail_image"
+                app:layout_constraintTop_toBottomOf="@+id/rb_rating_stars"
                 tools:text="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops" />
 
 
