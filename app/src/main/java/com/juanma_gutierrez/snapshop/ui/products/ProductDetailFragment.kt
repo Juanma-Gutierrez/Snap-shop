@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -38,8 +40,8 @@ class ProductDetailFragment : Fragment() {
      * Carga la información del producto en la interfaz.
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val svc = Services()
         super.onViewCreated(view, savedInstanceState)
+        val svc = Services()
         val selectedProduct: Product = args.product
         Log.d("testing", "onViewCreated: ${selectedProduct.title}")
         Glide.with(view)
