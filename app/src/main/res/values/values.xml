@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="num_lines">2</integer>
+    <integer name="num_columns">2</integer>
+    <dimen name="margin_min">8dp</dimen>
+    <dimen name="margin_mid">16dp</dimen>
+    <dimen name="margin_max">24dp</dimen>
+    <dimen name="menu_height">70dp</dimen>
+    <dimen name="product_image_min">100dp</dimen>
+    <dimen name="product_image_mid">200dp</dimen>
+    <dimen name="product_image_max">300dp</dimen>
+</resources>

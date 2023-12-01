@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF0000"
     tools:context=".ui.products.ProductDetailFragment">
 
     <TextView
+        android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Detail list fragment"
-        android:textSize="36sp"
+        android:textSize="@dimen/margin_max"
         android:gravity="center" />
 
 </FrameLayout>

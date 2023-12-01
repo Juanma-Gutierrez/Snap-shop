@@ -1,5 +1,7 @@
 package com.juanma_gutierrez.snapshop.adapter
 
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +14,10 @@ import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.ProductItemBinding
 import com.juanma_gutierrez.snapshop.services.Services
-import java.text.NumberFormat
-import java.util.Locale
 
 class ProductAdapter(
-    private val dataset: List<Product>
+    private val dataset: List<Product>,
+    val onDetail: ((product: Product, view: View) -> Unit),
 ) : RecyclerView.Adapter<ProductAdapter.ItemViewHolder>() {
     class ItemViewHolder(
         private val view: View
@@ -50,12 +51,12 @@ class ProductAdapter(
             .into(holder.iv_image)
         holder.itemView.setOnClickListener {
             Log.d("testing", "Click en ${product.title}")
+            onDetail(product, it)
         }
     }
 
     override fun getItemCount(): Int {
         return dataset.size
     }
-
 
 }

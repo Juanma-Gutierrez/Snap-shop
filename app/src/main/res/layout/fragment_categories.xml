@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:text="Categories fragment"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="@dimen/margin_max"
         />
 
 </FrameLayout>
