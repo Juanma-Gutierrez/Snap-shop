@@ -38,7 +38,7 @@ class ProductDetailFragment : Fragment() {
         binding.tvDetailDescription.text = selectedProduct.description
         binding.tvDetailPrice.text = svc.formatPrice(selectedProduct.price)
         binding.chDetailCategory.text = selectedProduct.category
-        binding.tvDetailRate.text = selectedProduct.rating?.rate.toString()
         binding.tvDetailCount.text = selectedProduct.rating?.count.toString()
+        binding.rbRatingStars.rating = selectedProduct.rating?.rate?.toFloat()!!
     }
 }
