@@ -14,20 +14,10 @@
             android:id="@+id/action_productListFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment"
 
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-
-
-            <!--
-            app:enterAnim="@anim/anim_in"
-            app:popExitAnim="@anim/anim_out"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            />
-
-            -->
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"/>
 
     </fragment>
     <fragment

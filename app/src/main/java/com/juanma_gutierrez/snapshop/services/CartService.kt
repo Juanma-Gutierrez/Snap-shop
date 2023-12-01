@@ -14,7 +14,7 @@ data class CartItem(
  * Servicio que gestiona el carrito de compras.
  */
 class CartService {
-    lateinit var cartList: MutableList<CartItem>
+    var cartList: MutableList<CartItem> = mutableListOf()
 
     /**
      * Añade un producto al carrito con la cantidad especificada.

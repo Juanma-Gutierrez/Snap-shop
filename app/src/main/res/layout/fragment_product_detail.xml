@@ -16,7 +16,7 @@
             android:background="@color/white"
             android:padding="@dimen/margin_max">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_detail_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -27,16 +27,16 @@
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <RatingBar
-                android:layout_marginVertical="@dimen/margin_mid"
                 android:id="@+id/rb_rating_stars"
                 style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_mid"
                 android:foregroundGravity="left"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/iv_detail_image" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_detail_count"
                 style="@style/TextAppearance.Material3.LabelSmall"
                 android:layout_width="wrap_content"
@@ -48,15 +48,15 @@
                 app:layout_constraintTop_toTopOf="@+id/rb_rating_stars"
                 tools:text="120" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_detail_name"
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mid"
                 android:background="@color/md_theme_dark_onPrimaryContainer"
                 android:gravity="center"
                 android:padding="@dimen/margin_mid"
-                android:layout_marginTop="@dimen/margin_mid"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_detail_name"
                 tools:text="men's clothing" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_detail_price"
                 style="@style/TextAppearance.Material3.TitleLarge"
                 android:layout_width="wrap_content"
@@ -83,24 +83,28 @@
                 app:layout_constraintTop_toTopOf="@+id/ch_detail_category"
                 tools:text=" 109.95 €" />
 
-            <View
-                android:id="@+id/vdiv1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="24dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintTop_toBottomOf="@+id/ch_detail_category"
-                tools:layout_editor_absoluteX="24dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_detail_add_to_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mid"
+                android:text="@string/add_to_cart"
+                app:icon="@drawable/baseline_shopping_cart_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ch_detail_category" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_detail_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_max"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vdiv1"
+                app:layout_constraintTop_toBottomOf="@+id/bt_detail_add_to_cart"
                 tools:text="Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

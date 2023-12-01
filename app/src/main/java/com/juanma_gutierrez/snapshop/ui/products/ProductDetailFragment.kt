@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -13,7 +14,10 @@ import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
+import com.juanma_gutierrez.snapshop.services.CartItem
+import com.juanma_gutierrez.snapshop.services.CartService
 import com.juanma_gutierrez.snapshop.services.Services
+import kotlinx.coroutines.selects.select
 
 /**
  * Fragment que muestra los detalles de un producto.
@@ -42,18 +46,22 @@ class ProductDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val svc = Services()
+        val cart = CartService()
         val selectedProduct: Product = args.product
         Log.d("testing", "onViewCreated: ${selectedProduct.title}")
         Glide.with(view)
             .load(selectedProduct.image)
             .into(binding.ivDetailImage)
         binding.rbRatingStars.rating = selectedProduct.rating?.rate?.toFloat()!!
-        binding.tvDetailCount.text = resources.getString(R.string.rating_detail, selectedProduct.rating?.count)
-
-        // binding.tvDetailCount.text = selectedProduct.rating?.count.toString() +"valoraciones"
+        binding.tvDetailCount.text =
+            resources.getString(R.string.rating_detail, selectedProduct.rating?.count)
         binding.tvDetailName.text = selectedProduct.title
         binding.chDetailCategory.text = selectedProduct.category
         binding.tvDetailPrice.text = svc.formatPrice(selectedProduct.price)
         binding.tvDetailDescription.text = selectedProduct.description
+        binding.btDetailAddToCart.setOnClickListener {
+            cart.cartList.add(CartItem(selectedProduct, 1))
+            Toast.makeText(view.context, "Producto añadido al carrito", Toast.LENGTH_SHORT).show()
+        }
     }
 }

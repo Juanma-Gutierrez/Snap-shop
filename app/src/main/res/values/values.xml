@@ -6,7 +6,7 @@
     <!-- Number of columns for recycler view -->
     <integer name="num_columns">2</integer>
     <!-- Animation duration -->
-    <integer name="anim_duration_long">500</integer>
+    <integer name="anim_duration_long">400</integer>
 
     <!-- Dimensions -->
     <!-- Margins -->

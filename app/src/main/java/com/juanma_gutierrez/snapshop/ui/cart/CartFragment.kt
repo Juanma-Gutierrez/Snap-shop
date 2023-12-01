@@ -5,17 +5,34 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.juanma_gutierrez.snapshop.R
+import com.juanma_gutierrez.snapshop.databinding.FragmentCartBinding
+import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
+import com.juanma_gutierrez.snapshop.databinding.FragmentProductListBinding
+import com.juanma_gutierrez.snapshop.services.CartItem
+import com.juanma_gutierrez.snapshop.services.CartService
 
 // TODO Comentarios
 class CartFragment : Fragment() {
+    private lateinit var binding: FragmentCartBinding
+    private lateinit var cartSvc:CartService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+        binding = FragmentCartBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        cartSvc = CartService()
+        if (cartSvc.cartList.size != 0) {
+            binding.tvCartItemList.text = cartSvc.cartList.toString()
+        } else {
+            binding.tvCartItemList.text = "Carrito vacío"
+        }
+    }
 }

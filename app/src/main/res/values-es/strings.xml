@@ -6,6 +6,6 @@
     <string name="cart">Carrito</string>
     <string name="loading">Cargando...</string>
     <string name="content_description">Imagen del artículo</string>
-    <string name="rate_title">Valoración:</string>
     <string name="rating_detail">%d valoraciones</string>
+    <string name="add_to_cart">Añadir al carrito</string>
 </resources>
