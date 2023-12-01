@@ -19,10 +19,17 @@ import com.juanma_gutierrez.snapshop.databinding.FragmentProductListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+/**
+ * Fragment que muestra una lista de productos en un recycler view.
+ */
 @AndroidEntryPoint
 class ProductListFragment : Fragment() {
     private lateinit var binding: FragmentProductListBinding
     private val viewModel: ProductListViewModel by viewModels()
+
+    /**
+     * Crea y retorna la vista asociada al fragment.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,6 +40,9 @@ class ProductListFragment : Fragment() {
         return binding.root
     }
 
+    /**
+     * Carga la lista de productos en el recycler view.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {

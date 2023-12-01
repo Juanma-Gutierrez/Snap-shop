@@ -7,21 +7,22 @@ import retrofit2.http.Path
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Interfaz para definir los puntos finales de la API relacionados con productos.
+ */
 interface ProductApi {
-    // ProductListResponse es la respuesta de la API
     @GET("products")
     suspend fun getAll(): List<ProductDetailResponse>
 
-
-    // Devuelve uel detalle de un producto
     @GET("products/{id}")
     suspend fun getDetail(@Path("id") id: Int): ProductDetailResponse
 }
 
-// Con Singleton se indica que es un provider tipo singleton
+/**
+ * Clase singleton que proporciona acceso a los servicios de la API relacionados con productos.
+ */
 @Singleton
 class ProductService @Inject constructor() {
-    // Instancia la clase retrofit
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://fakestoreapi.com/")
         .addConverterFactory(GsonConverterFactory.create())

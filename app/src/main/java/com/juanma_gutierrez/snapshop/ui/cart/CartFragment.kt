@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.juanma_gutierrez.snapshop.R
 
+// TODO Comentarios
 class CartFragment : Fragment() {
 
     override fun onCreateView(

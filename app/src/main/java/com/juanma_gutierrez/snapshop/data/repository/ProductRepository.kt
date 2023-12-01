@@ -1,6 +1,5 @@
 package com.juanma_gutierrez.snapshop.data.repository
 
-import android.util.Log
 import com.juanma_gutierrez.snapshop.data.api.ProductApiRepository
 import com.juanma_gutierrez.snapshop.data.api.asEntityModelList
 import com.juanma_gutierrez.snapshop.data.local.ProductLocalRepository
@@ -12,29 +11,33 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
-// Repository es el que va a usar el repo bd y otro el repo de red, unificando todas las fuentes de datos
-// en un solo modelo, es la capa de salida
+/**
+ * Clase singleton que sirve como repositorio principal para manejar datos de productos,
+ * combinando fuentes locales y de API.
+ * @property localRepository Repositorio local para datos de productos.
+ * @property apiRepository Repositorio de la API para datos de productos.
+ */
 @Singleton
 data class ProductsRepository @Inject constructor(
     private val localRepository: ProductLocalRepository,
     private val apiRepository: ProductApiRepository
 ) {
-    // Aquí ya la salida es tipo lista de Product
+    /**
+     * Un flujo que representa todos los productos, obtenidos de la fuente local.
+     */
     val allProducts: Flow<List<Product>>
         get() {
-            // Primero le pide a la bbdd que devuelva la lista de productos
             return localRepository.allProducts.map { listProductEntity ->
                 listProductEntity.asListProducts()
             }
         }
 
-    // El código que se va a ejecutar dentro es suspendible en una corrutina
-    // Como es una operación de red, está obligado a hacerlo en el IO por el Dispatchers
-    // Las corrutinas no están asociadas a un hilo, es recomendable usar el contexto Dispatchers.IO
+    /**
+     * Actualiza la lista de productos mediante la obtención de datos desde la API
+     * y la actualización de la base de datos local.
+     */
     suspend fun refreshList() = withContext(Dispatchers.IO) {
         val productsApiModelList = apiRepository.getAll()
-        Log.d("testing","Tamaño de productsApiModelList: ${productsApiModelList.size}")
         localRepository.insert(productsApiModelList.asEntityModelList())
     }
 }

@@ -6,6 +6,6 @@
     <string name="loading">Loading</string>
     <string name="content_description">Item image</string>
     <string name="rate_title">Rating:</string>
-    <string name="count_title">Count:</string>
+    <string name="rating_detail">%d rating</string>
 
 </resources>

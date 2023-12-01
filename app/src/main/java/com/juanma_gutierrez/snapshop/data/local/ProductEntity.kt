@@ -5,7 +5,9 @@ import androidx.room.PrimaryKey
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.data.repository.Rating
 
-// Define cómo es la tabla products de la BBDD
+/**
+ * Entidad de Room para representar un producto en la base de datos local.
+ */
 @Entity("product")
 data class ProductEntity(
     @PrimaryKey val id: Int,
@@ -17,6 +19,10 @@ data class ProductEntity(
     val rate: Double?,
     val count: Int?
 ) {
+    /**
+     * Convierte la entidad [ProductEntity] a un objeto [Product].
+     * @return El objeto [Product].
+     */
     fun asProduct(): Product {
         return Product(
             id,
@@ -30,8 +36,10 @@ data class ProductEntity(
     }
 }
 
-
-// Crea la función asListProducts() para devolver un List<Product> mapeado con name e image
+/**
+ * Extensión de la lista de [ProductEntity] que convierte la lista a una lista de [Product].
+ * @return La lista de [Product].
+ */
 fun List<ProductEntity>.asListProducts(): List<Product> {
     return this.map {
         it.asProduct()

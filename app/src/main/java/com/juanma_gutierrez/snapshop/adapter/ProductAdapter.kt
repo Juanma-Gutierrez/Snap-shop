@@ -13,10 +13,20 @@ import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.ProductItemBinding
 import com.juanma_gutierrez.snapshop.services.Services
 
+/**
+ * Clase de adaptador para manejar la visualización de elementos de productos en un RecyclerView.
+ * @param dataset La lista de productos a mostrar.
+ * @param onDetail Función de devolución de llamada que se invoca al hacer clic en un producto.
+ */
 class ProductAdapter(
     private val dataset: List<Product>,
     val onDetail: ((product: Product, view: View) -> Unit),
 ) : RecyclerView.Adapter<ProductAdapter.ItemViewHolder>() {
+
+    /**
+     * Clase ViewHolder para contener las vistas de items de productos.
+     * @param view La vista inflada para un item de producto.
+     */
     class ItemViewHolder(
         private val view: View
     ) : RecyclerView.ViewHolder(view) {
@@ -33,12 +43,23 @@ class ProductAdapter(
         }
     }
 
+    /**
+     * Crea un nuevo [ItemViewHolder] inflando el diseño para un item de producto.
+     * @param parent El grupo de vista padre al que se añadirá la nueva vista.
+     * @param viewType El tipo de la nueva vista.
+     * @return Una nueva instancia de [ItemViewHolder].
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout =
             LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
         return ItemViewHolder(adapterLayout)
     }
 
+    /**
+     * Vincula los datos de un producto en la posición dada al [ItemViewHolder].
+     * @param holder El [ItemViewHolder] al que se vincularán los datos.
+     * @param position La posición del producto en el conjunto de datos.
+     */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val product = dataset[position]
         val svc = Services()
@@ -53,8 +74,11 @@ class ProductAdapter(
         }
     }
 
+    /**
+     * Obtiene el número total de elementos en el conjunto de datos.
+     * @return El número total de elementos en el conjunto de datos.
+     */
     override fun getItemCount(): Int {
         return dataset.size
     }
-
 }

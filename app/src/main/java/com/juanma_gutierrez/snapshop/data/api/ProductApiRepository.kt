@@ -4,11 +4,19 @@ import android.util.Log
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Clase de repositorio para acceder a datos de productos desde la API.
+ * @property service El servicio que proporciona la comunicación con la API.
+ */
+
 @Singleton
 class ProductApiRepository @Inject constructor(
     private val service: ProductService
 ) {
-    // Mapea cada item recibido para cargar el detalle del mismo.
+    /**
+     * Obtiene la lista de productos desde la API y carga sus detalles.
+     * @return La lista de [ProductApiModel] con detalles.
+     */
     suspend fun getAll(): List<ProductApiModel> {
         val simpleList = service.api.getAll()
         return simpleList.map { p ->
