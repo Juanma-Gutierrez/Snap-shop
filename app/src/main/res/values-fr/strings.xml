@@ -6,4 +6,6 @@
     <string name="cart">Panier</string>
     <string name="loading">Chargement</string>
     <string name="content_description">Image de l\'article</string>
+    <string name="rate_title">Évaluation:</string>
+    <string name="count_title">Nº D\'avis</string>
 </resources>

@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
+import com.juanma_gutierrez.snapshop.services.Services
 
 class ProductDetailFragment : Fragment() {
     private lateinit var binding: FragmentProductDetailBinding
@@ -25,9 +27,18 @@ class ProductDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val svc = Services()
         super.onViewCreated(view, savedInstanceState)
         val selectedProduct: Product = args.product
-        Log.d("testing","onViewCreated: ${selectedProduct.title}")
-        binding.tvName.text = selectedProduct.title
+        Log.d("testing", "onViewCreated: ${selectedProduct.title}")
+        Glide.with(view)
+            .load(selectedProduct.image)
+            .into(binding.ivDetailImage)
+        binding.tvDetailName.text = selectedProduct.title
+        binding.tvDetailDescription.text = selectedProduct.description
+        binding.tvDetailPrice.text = svc.formatPrice(selectedProduct.price)
+        binding.chDetailCategory.text = selectedProduct.category
+        binding.tvDetailRate.text = selectedProduct.rating?.rate.toString()
+        binding.tvDetailCount.text = selectedProduct.rating?.count.toString()
     }
 }

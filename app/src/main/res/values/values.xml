@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Design formats -->
+    <!-- Number of lines for product title -->
     <integer name="num_lines">2</integer>
+    <!-- Number of columns for recycler view -->
     <integer name="num_columns">2</integer>
+
+    <!-- Dimensions -->
+    <!-- Margins -->
     <dimen name="margin_min">8dp</dimen>
     <dimen name="margin_mid">16dp</dimen>
     <dimen name="margin_max">24dp</dimen>
+    <!-- Menu height -->
     <dimen name="menu_height">70dp</dimen>
+    <!-- Image sizes -->
     <dimen name="product_image_min">100dp</dimen>
     <dimen name="product_image_mid">200dp</dimen>
     <dimen name="product_image_max">300dp</dimen>
+
+    <!-- Contrast colors -->
+    <attr name="colorContrast" format="color" />
+    <attr name="colorOnContrast" format="color" />
+    <attr name="colorContrastContainer" format="color" />
+    <attr name="colorOnContrastContainer" format="color" />
+    <attr name="harmonizeContrast" format="boolean" />
+
 </resources>
