@@ -60,8 +60,10 @@ class ProductDetailFragment : Fragment() {
         binding.tvDetailPrice.text = svc.formatPrice(selectedProduct.price)
         binding.tvDetailDescription.text = selectedProduct.description
         binding.btDetailAddToCart.setOnClickListener {
-            cartSvc.addProduct(selectedProduct, 1)
-            Toast.makeText(view.context, "Producto añadido al carrito ${cartSvc.getSize()}", Toast.LENGTH_SHORT).show()
+            cartSvc.addProduct(selectedProduct)
+            val message= getString(R.string.snackbar_message)
+            svc.showSnackbar(message, view)
+            // Toast.makeText(view.context, "Producto añadido al carrito ${cartSvc.getSize()}", Toast.LENGTH_SHORT).show()
         }
     }
 }

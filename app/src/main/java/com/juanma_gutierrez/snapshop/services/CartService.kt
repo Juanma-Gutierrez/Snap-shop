@@ -15,6 +15,8 @@ data class CartItem(
  */
 class CartService {
     private val cartList: MutableList<CartItem> = mutableListOf()
+    private var amount: Int = 0
+    private var quantityItems: Int = 0
 
     companion object {
         @Volatile
@@ -27,7 +29,7 @@ class CartService {
         }
     }
 
-    fun getSize():Int{
+    fun getSize(): Int {
         return cartList.size
     }
 
@@ -40,9 +42,19 @@ class CartService {
      * @param product El producto a añadir.
      * @param quantity La cantidad de unidades del producto.
      */
-    fun addProduct(product: Product, quantity: Int) {
-        cartList.add(CartItem(product, quantity))
+    fun addProduct(product: Product) {
+        val existingItem = cartList.find { it.product == product }
+        if (existingItem != null) {
+            existingItem.quantity++
+        } else {
+            cartList.add(CartItem(product, 1))
+        }
+        quantityItems++
+        // calculateAmount()
+    }
 
+    private fun calculateAmount() {
+        TODO("Not yet implemented")
     }
 
     /**

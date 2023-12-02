@@ -44,7 +44,8 @@ class CartItemAdapter(val context: View, val cartList: List<CartItem>) :
         val item: CartItem = cartList.get(position)
         holder.tvName.text = item.product.title
         holder.tvQuantity.text = item.quantity.toString()
-        holder.tvAmount.text = svc.formatPrice(item.product.price)
+        val itemTotalPrice = item.product.price * item.quantity
+        holder.tvAmount.text = svc.formatPrice(itemTotalPrice)
         Glide.with(holder.itemView.context)
             .load(item.product.image)
             .into(holder.ivItemImage)
