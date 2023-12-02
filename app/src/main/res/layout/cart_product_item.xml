@@ -6,15 +6,16 @@
     android:id="@+id/cv_cart_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/margin_min"
     android:layout_margin="@dimen/margin_min"
+    android:padding="@dimen/margin_min"
     app:cardCornerRadius="@dimen/margin_min"
     app:cardElevation="@dimen/margin_min">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:ignore="ExtraText">
+        android:background="@color/white"
+        android:padding="@dimen/margin_min">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_cart_image"
@@ -27,10 +28,14 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_cart_item_name"
-            style="@style/TextAppearance.Material3.TitleMedium"
+            style="@style/TextAppearance.Material3.LabelSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_max"
+            android:background="@color/transparent"
+            android:ellipsize="end"
+            android:maxLines="@integer/num_lines"
+            android:paddingHorizontal="@dimen/margin_max"
+            android:paddingVertical="@dimen/margin_min"
             app:layout_constraintBottom_toTopOf="@+id/bt_cart_remove"
             app:layout_constraintStart_toEndOf="@+id/iv_cart_image"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,18 +44,19 @@
 
         <Button
             android:id="@+id/bt_cart_remove"
-            style="@style/Widget.Material3.Button.IconButton.Filled"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_max"
             app:icon="@drawable/baseline_remove_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_cart_item_name"
+            app:layout_constraintStart_toEndOf="@+id/iv_cart_image"
             app:layout_constraintTop_toBottomOf="@+id/tv_cart_item_name" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_cart_quantity_item"
             style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="@dimen/quantity_size"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/bt_cart_remove"
@@ -60,7 +66,7 @@
 
         <Button
             android:id="@+id/bt_cart_add"
-            style="@style/Widget.Material3.Button.IconButton.Filled"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/baseline_add_24"
@@ -71,10 +77,10 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_cart_amount_item"
             style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/amount_size"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_max"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             app:layout_constraintBottom_toBottomOf="@+id/bt_cart_remove"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/bt_cart_remove"

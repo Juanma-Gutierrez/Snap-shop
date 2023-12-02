@@ -10,10 +10,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.CartProductItemBinding
 import com.juanma_gutierrez.snapshop.services.CartItem
+import com.juanma_gutierrez.snapshop.services.Services
 
 class CartItemAdapter(val context: View, val cartList: List<CartItem>) :
     RecyclerView.Adapter<CartItemAdapter.ViewHolder>() {
@@ -38,8 +40,14 @@ class CartItemAdapter(val context: View, val cartList: List<CartItem>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val svc = Services()
         val item: CartItem = cartList.get(position)
         holder.tvName.text = item.product.title
+        holder.tvQuantity.text = item.quantity.toString()
+        holder.tvAmount.text = svc.formatPrice(item.product.price)
+        Glide.with(holder.itemView.context)
+            .load(item.product.image)
+            .into(holder.ivItemImage)
         holder.btRemove.setOnClickListener {
             Log.d("testing", "Elimina 1 elemento")
         }

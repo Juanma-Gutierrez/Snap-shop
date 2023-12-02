@@ -13,8 +13,9 @@
     <dimen name="margin_min">8dp</dimen>
     <dimen name="margin_mid">16dp</dimen>
     <dimen name="margin_max">24dp</dimen>
-    <!-- Quantity size -->
+    <!-- Layout sizes -->
     <dimen name="quantity_size">60dp</dimen>
+    <dimen name="amount_size">80dp</dimen>
     <!-- Menu height -->
     <dimen name="menu_height">70dp</dimen>
     <!-- Image sizes -->
