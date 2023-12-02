@@ -14,7 +14,26 @@ data class CartItem(
  * Servicio que gestiona el carrito de compras.
  */
 class CartService {
-    var cartList: MutableList<CartItem> = mutableListOf()
+    private val cartList: MutableList<CartItem> = mutableListOf()
+
+    companion object {
+        @Volatile
+        private var _INSTANCE: CartService? = null
+    }
+
+    fun getInstance(): CartService {
+        return _INSTANCE ?: synchronized(this) {
+            _INSTANCE ?: CartService().also { _INSTANCE = it }
+        }
+    }
+
+    fun getSize():Int{
+        return cartList.size
+    }
+
+    fun getCartList(): List<CartItem> {
+        return cartList.toList()
+    }
 
     /**
      * Añade un producto al carrito con la cantidad especificada.
@@ -40,7 +59,7 @@ class CartService {
      * @param product El producto a actualizar.
      * @param quantity La nueva cantidad de unidades del producto.
      */
-    fun updateProduct(product: Product, quantity: Int){
+    fun updateProduct(product: Product, quantity: Int) {
         // todo encontrar el elemento que hay que modificar
     }
 }

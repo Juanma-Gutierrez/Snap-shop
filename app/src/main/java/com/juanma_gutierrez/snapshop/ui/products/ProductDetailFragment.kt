@@ -46,7 +46,7 @@ class ProductDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val svc = Services()
-        val cart = CartService()
+        val cartSvc = CartService().getInstance()
         val selectedProduct: Product = args.product
         Log.d("testing", "onViewCreated: ${selectedProduct.title}")
         Glide.with(view)
@@ -60,8 +60,8 @@ class ProductDetailFragment : Fragment() {
         binding.tvDetailPrice.text = svc.formatPrice(selectedProduct.price)
         binding.tvDetailDescription.text = selectedProduct.description
         binding.btDetailAddToCart.setOnClickListener {
-            cart.cartList.add(CartItem(selectedProduct, 1))
-            Toast.makeText(view.context, "Producto añadido al carrito", Toast.LENGTH_SHORT).show()
+            cartSvc.addProduct(selectedProduct, 1)
+            Toast.makeText(view.context, "Producto añadido al carrito ${cartSvc.getSize()}", Toast.LENGTH_SHORT).show()
         }
     }
 }
