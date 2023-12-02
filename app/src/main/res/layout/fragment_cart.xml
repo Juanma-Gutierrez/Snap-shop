@@ -54,27 +54,35 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin_max"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_cart_total_title"
-            app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/cart_product_item"></androidx.recyclerview.widget.RecyclerView>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_empty_cart"
-            style="@style/TextAppearance.Material3.TitleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/empty_cart"
-            android:textColor="@color/white"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+        <LinearLayout
+            android:id="@+id/ll_empty_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/TextAppearance.Material3.TitleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_cart"
+                android:textColor="@color/white" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sad_bag" />
+
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

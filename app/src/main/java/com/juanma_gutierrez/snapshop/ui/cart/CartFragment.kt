@@ -1,25 +1,15 @@
 package com.juanma_gutierrez.snapshop.ui.cart
 
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
-import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.adapter.CartItemAdapter
-import com.juanma_gutierrez.snapshop.adapter.ProductAdapter
 import com.juanma_gutierrez.snapshop.databinding.FragmentCartBinding
-import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
-import com.juanma_gutierrez.snapshop.databinding.FragmentProductListBinding
-import com.juanma_gutierrez.snapshop.services.CartItem
 import com.juanma_gutierrez.snapshop.services.CartService
 import com.juanma_gutierrez.snapshop.services.Services
 
@@ -49,7 +39,7 @@ class CartFragment : Fragment() {
             binding.tvCartTotal.text = svc.formatPrice(cartSvc.getAmount())
         } else {
             hideAll()
-            binding.tvEmptyCart.visibility = VISIBLE
+            binding.llEmptyCart.visibility = VISIBLE
         }
     }
 
@@ -57,7 +47,7 @@ class CartFragment : Fragment() {
         binding.tvCartTotalTitle.visibility = GONE
         binding.tvCartTotal.visibility = GONE
         binding.tvCartFragmentTitle.visibility = GONE
-        binding.tvEmptyCart.visibility = GONE
+        binding.llEmptyCart.visibility = GONE
     }
 
     fun showAll() {
@@ -65,6 +55,6 @@ class CartFragment : Fragment() {
         binding.tvCartTotal.visibility = VISIBLE
         binding.tvCartFragmentTitle.visibility = VISIBLE
         // emptyCartMessage hidden
-        binding.tvEmptyCart.visibility = GONE
+        binding.llEmptyCart.visibility = GONE
     }
 }
