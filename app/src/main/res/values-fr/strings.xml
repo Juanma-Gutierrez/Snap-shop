@@ -9,4 +9,7 @@
     <string name="rating_detail">%d évaluations</string>
     <string name="add_to_cart">Ajouter au panier</string>
     <string name="snackbar_message">Article ajouté au panier</string>
+    <string name="cart_fragment_title">Votre panier</string>
+    <string name="total_title">Total:</string>
+    <string name="empty_cart">Votre panier est vide</string>
 </resources>

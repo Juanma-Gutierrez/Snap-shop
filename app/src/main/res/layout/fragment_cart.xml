@@ -8,32 +8,74 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/md_theme_light_primary">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:id="@+id/tv_cart_item_list"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_cart_fragment_title"
+            style="@style/TextAppearance.Material3.TitleLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_max"
             android:gravity="center"
-            android:text="Cart fragment"
-            android:textSize="@dimen/margin_max"
+            android:text="@string/cart_fragment_title"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_cart_total"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_max"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_cart_total_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_cart_total_title"
+            tools:text="135,95€:" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_cart_total_title"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_min"
+            android:layout_marginTop="@dimen/margin_mid"
+            android:text="@string/total_title"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/tv_cart_total"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cart_fragment_title" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_cart_list"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_max"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_cart_item_list"
-            tools:listitem="@layout/cart_product_item">
+            app:layout_constraintTop_toBottomOf="@+id/tv_cart_total_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/cart_product_item"></androidx.recyclerview.widget.RecyclerView>
 
-        </androidx.recyclerview.widget.RecyclerView>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_empty_cart"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_cart"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -1,5 +1,6 @@
 package com.juanma_gutierrez.snapshop.services
 
+import android.util.Log
 import com.juanma_gutierrez.snapshop.data.repository.Product
 
 /**
@@ -15,7 +16,7 @@ data class CartItem(
  */
 class CartService {
     private val cartList: MutableList<CartItem> = mutableListOf()
-    private var amount: Int = 0
+    private var amount: Double = 0.0
     private var quantityItems: Int = 0
 
     companion object {
@@ -37,6 +38,10 @@ class CartService {
         return cartList.toList()
     }
 
+    fun getAmount(): Double {
+        return this.amount
+    }
+
     /**
      * Añade un producto al carrito con la cantidad especificada.
      * @param product El producto a añadir.
@@ -50,11 +55,16 @@ class CartService {
             cartList.add(CartItem(product, 1))
         }
         quantityItems++
-        // calculateAmount()
+        calculateAmount()
     }
 
     private fun calculateAmount() {
-        TODO("Not yet implemented")
+        this.amount = 0.0
+        for (item in cartList) {
+            val itemTotal = item.product.price * item.quantity
+            amount += itemTotal
+        }
+        Log.d("testing", "El total acumulado es: ${this.amount}")
     }
 
     /**
