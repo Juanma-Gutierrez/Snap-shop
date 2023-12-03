@@ -50,7 +50,6 @@ class ProductListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect {
-                    Log.d("testing", "OnViewCreated en ProductListFragment it: ${it.size}")
                     binding.llIsLoading.visibility = View.GONE
                     val adapter = ProductAdapter(it, ::onDetail)
                     binding.rvFragmentProductList.adapter = adapter

@@ -48,6 +48,7 @@ class CartService {
      * @param quantity La cantidad de unidades del producto.
      */
     fun addProduct(product: Product) {
+        Log.d("testing","Add product ${product.title}")
         val existingItem = cartList.find { it.product == product }
         if (existingItem != null) {
             existingItem.quantity++
@@ -64,7 +65,6 @@ class CartService {
             val itemTotal = item.product.price * item.quantity
             amount += itemTotal
         }
-        Log.d("testing", "El total acumulado es: ${this.amount}")
     }
 
     /**

@@ -20,7 +20,6 @@ class ProductApiRepository @Inject constructor(
     suspend fun getAll(): List<ProductApiModel> {
         val simpleList = service.api.getAll()
         return simpleList.map { p ->
-            Log.d("testing","getAll: ${p.title}")
             service.api.getDetail(p.id).asApiModel()
         }
     }

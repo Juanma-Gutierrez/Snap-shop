@@ -21,21 +21,21 @@ class Services {
         return currencyFormatter.format(price)
     }
 
-    fun showSnackbar(message: String, view: View) {
-        val snackbar = Snackbar.make(
+    fun showSnackBar(message: String, view: View) {
+        val snackBar = Snackbar.make(
             view,
             message,
             Snackbar.LENGTH_SHORT
         )
-        val layoutParams = snackbar.view.layoutParams as ViewGroup.MarginLayoutParams
+        val snackBarView = snackBar.view
+        val layoutParams = snackBarView.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.setMargins(
             layoutParams.leftMargin,
             layoutParams.topMargin,
             layoutParams.rightMargin,
             250
         )
-        snackbar.view.layoutParams = layoutParams
-
-        snackbar.show()
+        snackBarView.layoutParams = layoutParams
+        snackBar.show()
     }
 }

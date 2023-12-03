@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.ProductItemBinding
+import com.juanma_gutierrez.snapshop.services.CartService
 import com.juanma_gutierrez.snapshop.services.Services
 
 /**
@@ -34,12 +35,14 @@ class ProductAdapter(
         val iv_image: ImageView
         val tv_name: TextView
         val tv_price: TextView
+        val iv_cart: ImageView
 
         init {
             binding = ProductItemBinding.bind(view)
             iv_image = binding.ivProductImage
             tv_name = binding.tvProductName
             tv_price = binding.tvProductPrice
+            iv_cart = binding.ivProductItemCart
         }
     }
 
@@ -63,14 +66,19 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val product = dataset[position]
         val svc = Services()
+        val cartSvc = CartService().getInstance()
         holder.tv_name.text = product.title
         holder.tv_price.text = svc.formatPrice(product.price).toString()
         Glide.with(holder.itemView.context)
             .load(product.image)
             .into(holder.iv_image)
         holder.itemView.setOnClickListener {
-            Log.d("testing", "Click en ${product.title}")
             onDetail(product, it)
+        }
+        holder.iv_cart.setOnClickListener {
+            Log.d("testing", "Click en ${product.title}")
+            cartSvc.addProduct(product)
+            svc.showSnackBar("Producto añadido al carrito", holder.itemView)
         }
     }
 

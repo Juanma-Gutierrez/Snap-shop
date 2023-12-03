@@ -1,23 +1,17 @@
 package com.juanma_gutierrez.snapshop.ui.products
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
-import com.juanma_gutierrez.snapshop.services.CartItem
 import com.juanma_gutierrez.snapshop.services.CartService
 import com.juanma_gutierrez.snapshop.services.Services
-import kotlinx.coroutines.selects.select
 
 /**
  * Fragment que muestra los detalles de un producto.
@@ -48,7 +42,6 @@ class ProductDetailFragment : Fragment() {
         val svc = Services()
         val cartSvc = CartService().getInstance()
         val selectedProduct: Product = args.product
-        Log.d("testing", "onViewCreated: ${selectedProduct.title}")
         Glide.with(view)
             .load(selectedProduct.image)
             .into(binding.ivDetailImage)
@@ -62,7 +55,7 @@ class ProductDetailFragment : Fragment() {
         binding.btDetailAddToCart.setOnClickListener {
             cartSvc.addProduct(selectedProduct)
             val message= getString(R.string.snackbar_message)
-            svc.showSnackbar(message, view)
+            svc.showSnackBar(message, view)
             // Toast.makeText(view.context, "Producto añadido al carrito ${cartSvc.getSize()}", Toast.LENGTH_SHORT).show()
         }
     }

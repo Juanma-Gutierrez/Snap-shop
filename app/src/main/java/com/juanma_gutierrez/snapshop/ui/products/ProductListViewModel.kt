@@ -37,7 +37,6 @@ class ProductListViewModel @Inject constructor(
             try {
                 // Refresca la lista de productos al iniciar
                 repository.refreshList()
-                Log.d("testing", "ProductList: ${_productsList.value.size}")
             } catch (e: IOException) {
                 Log.e("ERROR", e.toString())
             }
@@ -45,7 +44,6 @@ class ProductListViewModel @Inject constructor(
         // Observa cambios en la lista de productos y actualiza el flujo
         viewModelScope.launch {
             repository.allProducts.collect {
-                Log.d("testing", "ProductListViewModel: ${it.size}")
                 _productsList.value = it
             }
         }

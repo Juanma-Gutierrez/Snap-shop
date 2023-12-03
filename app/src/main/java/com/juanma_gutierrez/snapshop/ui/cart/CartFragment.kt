@@ -33,28 +33,27 @@ class CartFragment : Fragment() {
         if (cartSvc.getSize() != 0) {
             // Carga el recyclerView con la lista en cartList
             val adapter = CartItemAdapter(view, cartSvc.getCartList())
-            showAll()
+            cartHasItem()
             binding.rvCartList.adapter = adapter
             binding.rvCartList.layoutManager = LinearLayoutManager(requireContext())
             binding.tvCartTotal.text = svc.formatPrice(cartSvc.getAmount())
         } else {
-            hideAll()
-            binding.llEmptyCart.visibility = VISIBLE
+            isEmpty()
         }
     }
-
-    fun hideAll() {
-        binding.tvCartTotalTitle.visibility = GONE
-        binding.tvCartTotal.visibility = GONE
-        binding.tvCartFragmentTitle.visibility = GONE
-        binding.llEmptyCart.visibility = GONE
-    }
-
-    fun showAll() {
+    fun cartHasItem() {
         binding.tvCartTotalTitle.visibility = VISIBLE
         binding.tvCartTotal.visibility = VISIBLE
         binding.tvCartFragmentTitle.visibility = VISIBLE
         // emptyCartMessage hidden
         binding.llEmptyCart.visibility = GONE
+    }
+
+    fun isEmpty() {
+        binding.tvCartTotalTitle.visibility = GONE
+        binding.tvCartTotal.visibility = GONE
+        binding.tvCartFragmentTitle.visibility = GONE
+        // emptyCartMessage showed
+        binding.llEmptyCart.visibility = VISIBLE
     }
 }
