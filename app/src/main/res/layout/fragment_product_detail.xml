@@ -88,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_mid"
-                android:text="@string/add_to_cart"
+                android:text="@string/fr_productDetail_add_to_cart"
                 app:icon="@drawable/baseline_shopping_cart_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

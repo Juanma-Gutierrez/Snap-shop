@@ -47,14 +47,14 @@ class ProductDetailFragment : Fragment() {
             .into(binding.ivDetailImage)
         binding.rbRatingStars.rating = selectedProduct.rating?.rate?.toFloat()!!
         binding.tvDetailCount.text =
-            resources.getString(R.string.rating_detail, selectedProduct.rating?.count)
+            resources.getString(R.string.fr_productDetail_rating_detail, selectedProduct.rating?.count)
         binding.tvDetailName.text = selectedProduct.title
         binding.chDetailCategory.text = selectedProduct.category
         binding.tvDetailPrice.text = svc.formatPrice(selectedProduct.price)
         binding.tvDetailDescription.text = selectedProduct.description
         binding.btDetailAddToCart.setOnClickListener {
             cartSvc.addProduct(selectedProduct)
-            val message= getString(R.string.snackbar_message)
+            val message= getString(R.string.fr_productDetail_snackbar_message)
             svc.showSnackBar(message, view)
             // Toast.makeText(view.context, "Producto añadido al carrito ${cartSvc.getSize()}", Toast.LENGTH_SHORT).show()
         }

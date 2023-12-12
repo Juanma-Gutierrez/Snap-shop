@@ -1,8 +1,8 @@
 package com.juanma_gutierrez.snapshop.di
 
 import android.content.Context
-import com.juanma_gutierrez.snapshop.data.local.ProductDao
-import com.juanma_gutierrez.snapshop.data.local.ProductsDatabase
+import com.juanma_gutierrez.snapshop.data.local.product.ProductDao
+import com.juanma_gutierrez.snapshop.data.local.database.ProductsDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

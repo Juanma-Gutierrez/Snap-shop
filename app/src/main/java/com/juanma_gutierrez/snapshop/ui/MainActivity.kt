@@ -2,6 +2,8 @@ package com.juanma_gutierrez.snapshop.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import android.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.juanma_gutierrez.snapshop.R
@@ -19,6 +21,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Configurar la Toolbar y manejar clics en los elementos del menú
+        binding.topTbToolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.top_tb_electronics -> showToast("1 ${this}")
+                R.id.top_tb_jewelry -> showToast("2")
+                R.id.top_tb_mens -> showToast("3")
+                R.id.top_tb_womens -> showToast("4")
+            }
+            true
+        }
+
         // Encuentra el fragmento de NavHost en el diseño
         val navHostFragment =
             supportFragmentManager.findFragmentById(binding.navHostFragment.id) as NavHostFragment
@@ -35,5 +48,9 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

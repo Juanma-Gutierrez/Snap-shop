@@ -49,7 +49,6 @@ android {
 }
 
 dependencies {
-
     // Fragments
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     // Navigation
@@ -71,7 +70,6 @@ dependencies {
     val kapt_hilt_version = "2.48.1"
     kapt("com.google.dagger:hilt-compiler:$kapt_hilt_version")
     implementation("com.google.dagger:hilt-android:$kapt_hilt_version")
-
     // Toolbar
     implementation("androidx.activity:activity-ktx:1.8.0")
     // RecyclerView

@@ -2,13 +2,13 @@
     <item
         android:id="@+id/navigation_product_list"
         android:icon="@drawable/baseline_shopping_bag_24"
-        android:title="@string/products" />
+        android:title="@string/menu_bottomNavigation_products" />
     <item
         android:id="@+id/navigation_categories"
         android:icon="@drawable/baseline_format_list_bulleted_24"
-        android:title="@string/categories" />
+        android:title="@string/menu_bottomNavigation_categories" />
     <item
         android:id="@+id/navigation_cart"
         android:icon="@drawable/baseline_shopping_cart_24"
-        android:title="@string/cart" />
+        android:title="@string/menu_bottomNavigation_cart" />
 </menu>

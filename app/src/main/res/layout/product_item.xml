@@ -17,8 +17,8 @@
         <ImageView
             android:id="@+id/iv_product_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/product_image_min"
-            android:contentDescription="@string/content_description"
+            android:layout_height="@dimen/product_image_max"
+            android:contentDescription="@string/fr_productItem_content_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

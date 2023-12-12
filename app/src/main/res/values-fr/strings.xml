@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Snap Shop</string>
-    <string name="products">Produits</string>
-    <string name="categories">Catégories</string>
-    <string name="cart">Panier</string>
-    <string name="loading">Chargement</string>
-    <string name="content_description">Image de l\'article</string>
-    <string name="rating_detail">%d évaluations</string>
-    <string name="add_to_cart">Ajouter au panier</string>
-    <string name="snackbar_message">Article ajouté au panier</string>
-    <string name="cart_fragment_title">Votre panier</string>
-    <string name="total_title">Total:</string>
-    <string name="empty_cart">Votre panier est vide</string>
+    <string name="menu_bottomNavigation_products">Produits</string>
+    <string name="menu_bottomNavigation_categories">Catégories</string>
+    <string name="menu_bottomNavigation_cart">Panier</string>
+    <string name="fr_productList_loading">Chargement</string>
+    <string name="fr_productItem_content_description">Image de l\'article</string>
+    <string name="fr_productDetail_rating_detail">%d évaluations</string>
+    <string name="fr_productDetail_add_to_cart">Ajouter au panier</string>
+    <string name="fr_productDetail_snackbar_message">Article ajouté au panier</string>
+    <string name="fr_cart_cart_fragment_title">Votre panier</string>
+    <string name="fr_cart_total_title">Total:</string>
+    <string name="ft_cart_empty_cart">Votre panier est vide</string>
+    <string name="electronics">Électronique</string>
+    <string name="jewelry">Bijoux</string>
+    <string name="men_s_clothing">Vêtements pour hommes</string>
+    <string name="women_s_clothing">Vêtements pour femmes</string>
 </resources>

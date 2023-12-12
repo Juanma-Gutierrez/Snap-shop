@@ -1,4 +1,4 @@
-package com.juanma_gutierrez.snapshop.data.local
+package com.juanma_gutierrez.snapshop.data.local.product
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,6 +1,6 @@
 package com.juanma_gutierrez.snapshop.data.api
 
-import com.juanma_gutierrez.snapshop.data.local.ProductEntity
+import com.juanma_gutierrez.snapshop.data.local.product.ProductEntity
 import com.juanma_gutierrez.snapshop.data.repository.Rating
 
 /**

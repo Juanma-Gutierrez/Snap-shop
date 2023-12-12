@@ -16,6 +16,9 @@ interface ProductApi {
 
     @GET("products/{id}")
     suspend fun getDetail(@Path("id") id: Int): ProductDetailResponse
+
+    @GET("products/category/{category}")
+    suspend fun getProductByCategory(@Path("category") category: String): ProductDetailResponse
 }
 
 /**

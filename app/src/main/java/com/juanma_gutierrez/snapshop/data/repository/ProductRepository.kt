@@ -2,8 +2,8 @@ package com.juanma_gutierrez.snapshop.data.repository
 
 import com.juanma_gutierrez.snapshop.data.api.ProductApiRepository
 import com.juanma_gutierrez.snapshop.data.api.asEntityModelList
-import com.juanma_gutierrez.snapshop.data.local.ProductLocalRepository
-import com.juanma_gutierrez.snapshop.data.local.asListProducts
+import com.juanma_gutierrez.snapshop.data.local.product.ProductLocalRepository
+import com.juanma_gutierrez.snapshop.data.local.product.asListProducts
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

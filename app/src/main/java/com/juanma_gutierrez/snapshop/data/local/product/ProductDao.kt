@@ -1,9 +1,10 @@
-package com.juanma_gutierrez.snapshop.data.local
+package com.juanma_gutierrez.snapshop.data.local.product
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.juanma_gutierrez.snapshop.data.local.product.ProductEntity
 import kotlinx.coroutines.flow.Flow // Sirve para crear un observable
 
 /**
@@ -32,3 +33,4 @@ interface ProductDao {
     @Query("SELECT * FROM product")
     fun getAllProducts(): Flow<List<ProductEntity>>
 }
+

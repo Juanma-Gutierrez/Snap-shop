@@ -4,11 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/top_tb_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/menu_height"
+        app:menu="@menu/top_toolbar">
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/menu_height"
         android:layout_marginBottom="@dimen/menu_height"
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_navigation" />

@@ -1,9 +1,13 @@
-package com.juanma_gutierrez.snapshop.data.local
+package com.juanma_gutierrez.snapshop.data.local.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.juanma_gutierrez.snapshop.data.local.cart.CartDao
+import com.juanma_gutierrez.snapshop.data.local.cart.CartEntity
+import com.juanma_gutierrez.snapshop.data.local.product.ProductDao
+import com.juanma_gutierrez.snapshop.data.local.product.ProductEntity
 
 /**
  * Base de datos Room para almacenar la entidad de productos.
@@ -11,8 +15,8 @@ import androidx.room.RoomDatabase
  * @property version La versión de la base de datos.
  */
 @Database(
-    entities = [ProductEntity::class],
-    version = 1,
+    entities = [ProductEntity::class, CartEntity::class],
+    version = 1
 )
 abstract class ProductsDatabase() : RoomDatabase() {
     /**
@@ -20,6 +24,12 @@ abstract class ProductsDatabase() : RoomDatabase() {
      * @return El DAO de productos.
      */
     abstract fun productDao(): ProductDao
+
+    /**
+     * Devuelve una instancia del DAO de carrito para interactuar con la base de datos.
+     * @return El DAO de carrito.
+     */
+    abstract fun cartDao(): CartDao
 
     companion object {
         @Volatile
