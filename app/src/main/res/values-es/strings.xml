@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Snap Shop</string>
     <string name="menu_bottomNavigation_products">Productos</string>
-    <string name="menu_bottomNavigation_categories">Categorías</string>
+    <string name="menu_bottomNavigation_user">Usuario</string>
     <string name="menu_bottomNavigation_cart">Carrito</string>
     <string name="fr_productList_loading">Cargando...</string>
     <string name="fr_productItem_content_description">Imagen del artículo</string>

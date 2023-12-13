@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--
     <item
         android:id="@+id/top_tb_electronics"
         android:orderInCategory="100"
@@ -19,4 +22,10 @@
         android:id="@+id/top_tb_womens"
         android:orderInCategory="100"
         android:title="@string/women_s_clothing" />
+    -->
+    <item
+        android:id="@+id/menu_main"
+        android:icon="@drawable/sad_bag"
+        android:title="Filtrar artículos"
+        app:showAsAction="always"/>
 </menu>

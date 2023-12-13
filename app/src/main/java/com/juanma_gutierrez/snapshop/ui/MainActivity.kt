@@ -24,10 +24,10 @@ class MainActivity : AppCompatActivity() {
         // Configurar la Toolbar y manejar clics en los elementos del menú
         binding.topTbToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.top_tb_electronics -> showToast("1 ${this}")
-                R.id.top_tb_jewelry -> showToast("2")
-                R.id.top_tb_mens -> showToast("3")
-                R.id.top_tb_womens -> showToast("4")
+                // R.id.top_tb_electronics -> showToast("1 ${this}")
+                // R.id.top_tb_jewelry -> showToast("2")
+                // R.id.top_tb_mens -> showToast("3")
+                // R.id.top_tb_womens -> showToast("4")
             }
             true
         }
@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_product_list -> navController.navigate(R.id.productListFragment)
-                R.id.navigation_categories -> navController.navigate(R.id.categoriesFragment)
                 R.id.navigation_cart -> navController.navigate(R.id.cartFragment)
+                R.id.navigation_user -> navController.navigate(R.id.userFragment)
             }
             true
         }

@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Snap Shop</string>
     <string name="menu_bottomNavigation_products">Produits</string>
-    <string name="menu_bottomNavigation_categories">Catégories</string>
     <string name="menu_bottomNavigation_cart">Panier</string>
     <string name="fr_productList_loading">Chargement</string>
     <string name="fr_productItem_content_description">Image de l\'article</string>
@@ -16,4 +15,5 @@
     <string name="jewelry">Bijoux</string>
     <string name="men_s_clothing">Vêtements pour hommes</string>
     <string name="women_s_clothing">Vêtements pour femmes</string>
+    <string name="menu_bottomNavigation_user">Utilisateur</string>
 </resources>
