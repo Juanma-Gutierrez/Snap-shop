@@ -15,5 +15,13 @@
     <string name="men_s_clothing">Men\'s clothing</string>
     <string name="women_s_clothing">Women\'s clothing</string>
     <string name="menu_bottomNavigation_user">User</string>
+    <string name="user_name">User name:</string>
+    <string name="name">Name:</string>
+    <string name="email">Email:</string>
+    <string name="city">City:</string>
+    <string name="street">Street:</string>
+    <string name="zip_code">Zip code:</string>
+    <string name="phone">Phone:</string>
+    <string name="user_data">User data</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

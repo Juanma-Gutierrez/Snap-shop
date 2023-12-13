@@ -16,4 +16,12 @@
     <string name="men_s_clothing">Vêtements pour hommes</string>
     <string name="women_s_clothing">Vêtements pour femmes</string>
     <string name="menu_bottomNavigation_user">Utilisateur</string>
+    <string name="user_name">Nom d\'utilisateur:</string>
+    <string name="name">Prénom:</string>
+    <string name="email">Adresse électronique:</string>
+    <string name="city">Ville:</string>
+    <string name="street">Rue:</string>
+    <string name="zip_code">Code postal:</string>
+    <string name="phone">Teléphone:</string>
+    <string name="user_data">Informations de l\'utilisateur</string>
 </resources>
