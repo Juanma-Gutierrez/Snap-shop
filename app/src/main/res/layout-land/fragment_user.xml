@@ -7,247 +7,248 @@
     android:background="@color/md_theme_light_primary"
     tools:context=".ui.user.UserFragment">
 
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.cardview.widget.CardView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="@dimen/margin_max"
-        app:cardCornerRadius="@dimen/margin_max"
-        app:cardElevation="@dimen/margin_max">
+        android:layout_height="match_parent">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/margin_max">
-
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/TextAppearance.Material3.TitleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginHorizontal="@dimen/margin_max"
-                android:text="@string/user_data"
-                android:textColor="@color/material_dynamic_primary0"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_frUser_user_image" />
-
-            <ImageView
-                android:id="@+id/iv_frUser_user_image"
-                android:layout_width="@dimen/product_image_mid"
-                android:layout_height="@dimen/product_image_mid"
-                android:src="@drawable/baseline_person_24"
-                android:tint="@color/md_theme_light_primary"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                app:layout_constraintEnd_toEndOf="@+id/textView2"
-                app:layout_constraintStart_toStartOf="@+id/textView2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
-
-            <TextView
-                android:id="@+id/tv_frUser_user_name"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_ftUser_title_username"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/tv_ftUser_title_username"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="johnd" />
-
-            <TextView
-                android:id="@+id/tv_frUser_first_name"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_frUser_title_name"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/tv_frUser_title_name"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="John" />
-
-            <TextView
-                android:id="@+id/tv_fruser_surname"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_min"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_frUser_first_name"
-                app:layout_constraintStart_toEndOf="@+id/tv_frUser_first_name"
-                app:layout_constraintTop_toTopOf="@+id/tv_frUser_first_name"
-                tools:text="Doe" />
-
-            <TextView
-                android:id="@+id/tv_fruser_email"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/textView4"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="John@gmail.com" />
-
-            <TextView
-                android:id="@+id/tv_fruser_title_city"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_mid"
-                android:gravity="center"
-                android:text="@string/city"
-                app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_street"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <TextView
-                android:id="@+id/tv_ftUser_title_username"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/user_name"
-                app:layout_constraintBottom_toTopOf="@+id/tv_frUser_title_name"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
-
-            <TextView
-                android:id="@+id/tv_frUser_title_name"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_mid"
-                android:gravity="center"
-                android:text="@string/name"
-                app:layout_constraintBottom_toTopOf="@+id/textView4"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ftUser_title_username" />
-
-            <TextView
-                android:id="@+id/textView4"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_mid"
-                android:gravity="center"
-                android:text="@string/email"
-                app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_city"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toBottomOf="@+id/tv_frUser_title_name" />
-
-            <TextView
-                android:id="@+id/tv_fruser_title_street"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_mid"
-                android:gravity="center"
-                android:text="@string/street"
-                app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_zipcode"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fruser_title_city" />
-
-            <TextView
-                android:id="@+id/tv_fruser_title_zipcode"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_mid"
-                android:gravity="center"
-                android:text="@string/zip_code"
-                app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_phone"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fruser_title_street" />
-
-            <TextView
-                android:id="@+id/tv_fruser_title_phone"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_mid"
-                android:gravity="center"
-                android:text="@string/phone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fruser_title_zipcode" />
-
-            <TextView
-                android:id="@+id/tv_fruser_city"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_city"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_city"
-                tools:text="kilcoole" />
-
-            <TextView
-                android:id="@+id/tv_fruser_street"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_street"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_street"
-                tools:text="7835 new road" />
-
-            <TextView
-                android:id="@+id/tv_fruser_number"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_min"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_street"
-                app:layout_constraintStart_toEndOf="@+id/tv_fruser_street"
-                app:layout_constraintTop_toTopOf="@+id/tv_fruser_street"
-                tools:text="5" />
-
-            <TextView
-                android:id="@+id/tv_fruser_zipcode"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_zipcode"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_zipcode"
-                tools:text="12926-3874" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/margin_max"
+            android:layout_marginTop="@dimen/top_menu_height"
+            app:cardCornerRadius="@dimen/margin_max"
+            app:cardElevation="@dimen/margin_max">
 
 
-            <TextView
-                android:id="@+id/tv_fruser_phone"
-                style="@style/TextAppearance.Material3.LabelMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_phone"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_phone"
-                tools:text="1-570-236-7033" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/margin_max">
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.55" />
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/TextAppearance.Material3.TitleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_max"
+                    android:text="@string/user_data"
+                    android:textColor="@color/material_dynamic_primary0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_frUser_user_image" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.6" />
+                <ImageView
+                    android:id="@+id/iv_frUser_user_image"
+                    android:layout_width="@dimen/product_image_mid"
+                    android:layout_height="@dimen/product_image_mid"
+                    android:src="@drawable/baseline_person_24"
+                    android:tint="@color/md_theme_light_primary"
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="@+id/textView2"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_frUser_user_name"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_ftUser_title_username"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tv_ftUser_title_username"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="johnd" />
+
+                <TextView
+                    android:id="@+id/tv_frUser_first_name"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_frUser_title_name"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tv_frUser_title_name"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="John" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_surname"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_min"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_frUser_first_name"
+                    app:layout_constraintStart_toEndOf="@+id/tv_frUser_first_name"
+                    app:layout_constraintTop_toTopOf="@+id/tv_frUser_first_name"
+                    tools:text="Doe" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_email"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/textView4"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="John@gmail.com" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_title_city"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mid"
+                    android:gravity="center"
+                    android:text="@string/city"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_street"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <TextView
+                    android:id="@+id/tv_ftUser_title_username"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/user_name"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_frUser_title_name"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tv_frUser_title_name"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mid"
+                    android:gravity="center"
+                    android:text="@string/name"
+                    app:layout_constraintBottom_toTopOf="@+id/textView4"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ftUser_title_username" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mid"
+                    android:gravity="center"
+                    android:text="@string/email"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_city"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_frUser_title_name" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_title_street"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mid"
+                    android:gravity="center"
+                    android:text="@string/street"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_zipcode"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fruser_title_city" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_title_zipcode"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mid"
+                    android:gravity="center"
+                    android:text="@string/zip_code"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_fruser_title_phone"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fruser_title_street" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_title_phone"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mid"
+                    android:gravity="center"
+                    android:text="@string/phone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fruser_title_zipcode" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_city"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_city"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_city"
+                    tools:text="kilcoole" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_street"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_street"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_street"
+                    tools:text="7835 new road" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_number"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_min"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_street"
+                    app:layout_constraintStart_toEndOf="@+id/tv_fruser_street"
+                    app:layout_constraintTop_toTopOf="@+id/tv_fruser_street"
+                    tools:text="5" />
+
+                <TextView
+                    android:id="@+id/tv_fruser_zipcode"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_zipcode"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_zipcode"
+                    tools:text="12926-3874" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/tv_fruser_phone"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_fruser_title_phone"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/tv_fruser_title_phone"
+                    tools:text="1-570-236-7033" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.55" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
 
 
-</androidx.core.widget.NestedScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

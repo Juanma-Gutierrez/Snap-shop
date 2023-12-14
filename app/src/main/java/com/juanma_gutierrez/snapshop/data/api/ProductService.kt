@@ -1,5 +1,7 @@
 package com.juanma_gutierrez.snapshop.data.api
 
+import com.juanma_gutierrez.snapshop.data.models.ProductDetailResponse
+import com.juanma_gutierrez.snapshop.data.models.UserResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

@@ -1,15 +1,8 @@
 package com.juanma_gutierrez.snapshop.services
 
 import android.util.Log
+import com.juanma_gutierrez.snapshop.data.models.CartItem
 import com.juanma_gutierrez.snapshop.data.repository.Product
-
-/**
- * Clase que representa un elemento en el carrito de compras.
- */
-data class CartItem(
-    var product: Product,
-    var quantity: Int,
-)
 
 /**
  * Servicio que gestiona el carrito de compras.

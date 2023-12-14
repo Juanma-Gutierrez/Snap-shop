@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.api.ProductApi
-import com.juanma_gutierrez.snapshop.data.api.User
+import com.juanma_gutierrez.snapshop.data.models.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

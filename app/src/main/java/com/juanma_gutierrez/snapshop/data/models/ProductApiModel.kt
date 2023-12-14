@@ -1,4 +1,4 @@
-package com.juanma_gutierrez.snapshop.data.api
+package com.juanma_gutierrez.snapshop.data.models
 
 import com.juanma_gutierrez.snapshop.data.local.product.ProductEntity
 import com.juanma_gutierrez.snapshop.data.repository.Rating

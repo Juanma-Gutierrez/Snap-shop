@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow // Sirve para crear un observable
  */
 @Dao
 interface CartDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun createCart(listCartEntity: List<CartEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

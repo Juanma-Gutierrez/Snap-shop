@@ -1,6 +1,7 @@
 package com.juanma_gutierrez.snapshop.data.api
 
-import android.util.Log
+import com.juanma_gutierrez.snapshop.data.models.ProductApiModel
+import com.juanma_gutierrez.snapshop.data.models.User
 import javax.inject.Inject
 import javax.inject.Singleton
 

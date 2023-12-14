@@ -16,14 +16,14 @@ interface ProductDao {
      * Inserta una lista de entidades de productos en la base de datos.
      * @param listProductEntity La lista de entidades de productos a insertar.
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun createProduct(listProductEntity: List<ProductEntity>)
 
     /**
      * Inserta una entidad de producto en la base de datos.
      * @param productEntity La entidad de producto a insertar.
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun createProduct(productEntity: ProductEntity)
 
     /**

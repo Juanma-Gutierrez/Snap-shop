@@ -8,13 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
-import com.juanma_gutierrez.snapshop.data.repository.Product
-import com.juanma_gutierrez.snapshop.databinding.CartProductItemBinding
-import com.juanma_gutierrez.snapshop.services.CartItem
+import com.juanma_gutierrez.snapshop.data.models.CartItem
 import com.juanma_gutierrez.snapshop.services.Services
 
 class CartItemAdapter(val context: View, val cartList: List<CartItem>) :

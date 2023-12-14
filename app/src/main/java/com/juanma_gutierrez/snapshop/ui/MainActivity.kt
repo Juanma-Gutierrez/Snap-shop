@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.juanma_gutierrez.snapshop.R
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
 
         // Obtiene el NavController desde el NavHostFragment
         navController = navHostFragment.navController
+
+        val color = ContextCompat.getColor(this@MainActivity, R.color.md_theme_light_inversePrimary)
+        binding.topTbToolbar.setBackgroundColor(color)
 
         // Asigna navegación a los botones del bottomBar
         binding.bottomNav.setOnItemSelectedListener { item ->

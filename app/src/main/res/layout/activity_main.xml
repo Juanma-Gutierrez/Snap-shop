@@ -7,7 +7,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/top_tb_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/menu_height"
+        android:layout_height="@dimen/top_menu_height"
         app:menu="@menu/top_toolbar">
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -16,15 +16,15 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/menu_height"
-        android:layout_marginBottom="@dimen/menu_height"
+        android:layout_marginTop="@dimen/top_menu_height"
+        android:layout_marginBottom="@dimen/bottom_bar_menu_height"
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/menu_height"
+        android:layout_height="@dimen/bottom_bar_menu_height"
         android:layout_gravity="bottom"
         app:menu="@menu/bottom_navigation_menu" />
 </FrameLayout>
