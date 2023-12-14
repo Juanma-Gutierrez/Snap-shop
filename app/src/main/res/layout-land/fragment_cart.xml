@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.cart.CartFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/md_theme_light_primary">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_cart_fragment_title"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_max"
+            android:gravity="center"
+            android:text="@string/fr_cart_cart_fragment_title"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rv_cart_list"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_cart_total_title"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_min"
+            android:layout_marginTop="@dimen/margin_mid"
+            android:text="@string/fr_cart_total_title"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/tv_cart_total"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cart_fragment_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_cart_total"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_max"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_cart_total_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_cart_total_title"
+            tools:text="135,95€:" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cart_list"
+            android:layout_width="400dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/cart_product_item"></androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_empty_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ft_cart_empty_cart"
+            android:textColor="@color/white" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="@dimen/product_image_min"
+            android:layout_height="@dimen/product_image_min"
+            android:layout_marginTop="@dimen/margin_max"
+            android:src="@drawable/sad_bag" />
+    </LinearLayout>
+</FrameLayout>
