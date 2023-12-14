@@ -16,9 +16,9 @@
     <string name="jewelry">Joyería</string>
     <string name="men_s_clothing">Ropa de hombre</string>
     <string name="women_s_clothing">Ropa de mujer</string>
-    <string name="user_name">Nombre de usuario:</string>
+    <string name="user_name">Usuario:</string>
     <string name="name">Nombre:</string>
-    <string name="email">Correo electrónico:</string>
+    <string name="email">Email:</string>
     <string name="city">Ciudad:</string>
     <string name="street">Calle:</string>
     <string name="zip_code">Código postal:</string>

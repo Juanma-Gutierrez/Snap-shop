@@ -19,6 +19,9 @@ interface ProductApi {
 
     @GET("products/category/{category}")
     suspend fun getProductByCategory(@Path("category") category: String): ProductDetailResponse
+
+    @GET("users/{userId}")
+    suspend fun getUserDetail(@Path("userId") userId: String): UserResponse
 }
 
 /**

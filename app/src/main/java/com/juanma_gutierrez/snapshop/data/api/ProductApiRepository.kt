@@ -23,4 +23,9 @@ class ProductApiRepository @Inject constructor(
             service.api.getDetail(p.id).asApiModel()
         }
     }
+
+    suspend fun getUser(userId:String): User {
+        val userData = service.api.getUserDetail(userId)
+        return userData.asUser()
+    }
 }

@@ -72,5 +72,58 @@ data class ProductDetailResponse(
     }
 }
 
+data class UserResponse(
+    val id: Int,
+    val email: String,
+    val username: String,
+    val password: String,
+    val name: UserName,
+    val address: UserAddress,
+    val phone: String,
+) {
+    /**
+     * Convierte la respuesta del usuario a un [User].
+     * @return [User].
+     */
+    fun asUser(): User {
+        return User(
+            id,
+            email,
+            username,
+            password,
+            name.firstname,
+            name.lastname,
+            address.city,
+            address.street,
+            address.number,
+            address.zipcode,
+            phone,
+        )
+    }
+}
 
+data class UserName(
+    val firstname: String,
+    val lastname: String,
+)
 
+data class UserAddress(
+    val city: String,
+    val street: String,
+    val number: Long,
+    val zipcode: String,
+)
+
+data class User(
+    val id: Int,
+    val email: String,
+    val userName: String,
+    val password: String,
+    val firstName: String,
+    val surname: String,
+    val city: String,
+    val street: String,
+    val number: Long,
+    val zipcode: String,
+    val phone: String,
+)
