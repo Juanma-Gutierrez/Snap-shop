@@ -5,6 +5,7 @@
     <integer name="num_lines">2</integer>
     <!-- Number of columns for recycler view -->
     <integer name="num_columns">2</integer>
+    <integer name="num_columns_landscape">4</integer>
     <!-- Animation duration -->
     <integer name="anim_duration_long">400</integer>
 
@@ -20,8 +21,8 @@
     <dimen name="menu_height">70dp</dimen>
     <!-- Image sizes -->
     <dimen name="product_image_min">100dp</dimen>
-    <dimen name="product_image_mid">200dp</dimen>
-    <dimen name="product_image_max">300dp</dimen>
+    <dimen name="product_image_mid">150dp</dimen>
+    <dimen name="product_image_max">200dp</dimen>
 
     <!-- Contrast colors -->
     <attr name="colorContrast" format="color" />
