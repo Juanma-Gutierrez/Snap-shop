@@ -24,12 +24,9 @@ class CartService @Inject constructor(
         databaseRepository.insertProductCart(cartItem)
     }
 
-    /*
+
     val allProductsCart: Flow<List<CartEntity>>
         get() {
-            return databaseRepository.allProducts
+            return databaseRepository.allProductsCart
         }
-*/
-
-    // Puedes agregar más funciones según sea necesario, como removeFromCart, clearCart, etc.
 }

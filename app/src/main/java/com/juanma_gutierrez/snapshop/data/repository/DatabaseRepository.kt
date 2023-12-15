@@ -50,16 +50,13 @@ data class DatabaseRepository @Inject constructor(
         cartDao.insertProductCart(cartItem)
     }
 
-
-
-    /*
-        val allProductsCart: Flow<List<Cart>>
-            get() {
-                return localRepository.allProductsCart.map { listProductsCart ->
-                    listProductsCart.asListProductsCart()
-                }
+    val allProductsCart: Flow<List<CartEntity>>
+        get() {
+            return localRepository.allProductsCart.map { item ->
+                item
             }
-     */
+        }
+
 }
 
 
