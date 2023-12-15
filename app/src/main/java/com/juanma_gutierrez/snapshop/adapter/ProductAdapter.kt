@@ -9,10 +9,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
+import com.juanma_gutierrez.snapshop.data.api.ProductApi
+import com.juanma_gutierrez.snapshop.data.repository.CartService
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.ProductItemBinding
-import com.juanma_gutierrez.snapshop.services.CartService
 import com.juanma_gutierrez.snapshop.services.Services
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /**
  * Clase de adaptador para manejar la visualización de elementos de productos en un RecyclerView.
@@ -21,7 +25,8 @@ import com.juanma_gutierrez.snapshop.services.Services
  */
 class ProductAdapter(
     private val dataset: List<Product>,
-    val onDetail: ((product: Product, view: View) -> Unit),
+    private val onDetail: ((product: Product, view: View) -> Unit),
+    private val cartSvc: CartService
 ) : RecyclerView.Adapter<ProductAdapter.ItemViewHolder>() {
 
     /**
@@ -66,7 +71,6 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val product = dataset[position]
         val svc = Services()
-        val cartSvc = CartService().getInstance()
         holder.tv_name.text = product.title
         holder.tv_price.text = svc.formatPrice(product.price).toString()
         Glide.with(holder.itemView.context)
@@ -76,11 +80,19 @@ class ProductAdapter(
             onDetail(product, it)
         }
         holder.iv_cart.setOnClickListener {
-            Log.d("testing", "Click en ${product.title}")
-            cartSvc.addProduct(product)
-            svc.showSnackBar("Producto añadido al carrito", holder.itemView)
+            CoroutineScope(Dispatchers.Main).launch {
+                try {
+                    Log.d("testing", "Click en ${product.title}")
+                    cartSvc.addToCart(product)
+                    svc.showSnackBar("Producto añadido al carrito", holder.itemView)
+                } catch (e: Exception) {
+                    Log.e("error", "Error al cargar el usuario", e)
+                }
+            }
         }
+
     }
+
 
     /**
      * Obtiene el número total de elementos en el conjunto de datos.

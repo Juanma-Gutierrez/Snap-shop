@@ -8,15 +8,13 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.juanma_gutierrez.snapshop.adapter.CartItemAdapter
 import com.juanma_gutierrez.snapshop.databinding.FragmentCartBinding
-import com.juanma_gutierrez.snapshop.services.CartService
 import com.juanma_gutierrez.snapshop.services.Services
 
 // TODO Comentarios
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
-    private lateinit var cartSvc: CartService
+    // private lateinit var cartSvc: CartService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +26,7 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        /*
         cartSvc = CartService().getInstance()
         val svc = Services()
         if (cartSvc.getSize() != 0) {
@@ -55,5 +54,7 @@ class CartFragment : Fragment() {
         binding.tvCartFragmentTitle.visibility = GONE
         // emptyCartMessage showed
         binding.llEmptyCart.visibility = VISIBLE
+    }
+         */
     }
 }

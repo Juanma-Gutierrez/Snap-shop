@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.juanma_gutierrez.snapshop.data.repository.Product
-import com.juanma_gutierrez.snapshop.data.repository.ProductsRepository
+import com.juanma_gutierrez.snapshop.data.repository.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,7 +20,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class ProductListViewModel @Inject constructor(
-    private val repository: ProductsRepository
+    private val repository: DatabaseRepository
 ) : ViewModel() {
     /**
      * Flujo mutable que representa la lista actual de productos.

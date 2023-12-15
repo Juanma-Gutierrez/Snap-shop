@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.juanma_gutierrez.snapshop.data.local.product.ProductEntity
 import kotlinx.coroutines.flow.Flow // Sirve para crear un observable
 
 /**
@@ -12,12 +11,9 @@ import kotlinx.coroutines.flow.Flow // Sirve para crear un observable
  */
 @Dao
 interface CartDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun createCart(listCartEntity: List<CartEntity>)
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun createCart(cartEntity: CartEntity)
+    suspend fun insertProductCart(cartEntity: CartEntity)
 
     @Query("SELECT * FROM cart")
-    fun getCart(): Flow<List<CartEntity>>
+    fun getAllProductsCart(): Flow<List<CartEntity>>
 }

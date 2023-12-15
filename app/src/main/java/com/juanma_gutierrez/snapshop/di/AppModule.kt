@@ -1,8 +1,11 @@
 package com.juanma_gutierrez.snapshop.di
 
 import android.content.Context
+import com.juanma_gutierrez.snapshop.data.local.cart.CartDao
 import com.juanma_gutierrez.snapshop.data.local.product.ProductDao
 import com.juanma_gutierrez.snapshop.data.local.database.ProductsDatabase
+import com.juanma_gutierrez.snapshop.data.repository.CartService
+import com.juanma_gutierrez.snapshop.data.repository.DatabaseRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +20,7 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class) // Se instala en toda la aplicación
-object DatabaseModule {
+object AppModule {
     /**
      * Provee la instancia única de la base de datos de productos.
      * @param context El contexto de la aplicación.
@@ -38,5 +41,20 @@ object DatabaseModule {
     @Provides
     fun provideProductDao(database: ProductsDatabase): ProductDao {
         return database.productDao()
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideCartDao(database: ProductsDatabase): CartDao {
+        return database.cartDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideCartService(
+        databaseRepository: DatabaseRepository
+    ): CartService {
+        return CartService(databaseRepository)
     }
 }

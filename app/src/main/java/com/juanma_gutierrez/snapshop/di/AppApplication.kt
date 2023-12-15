@@ -9,5 +9,5 @@ import dagger.hilt.android.HiltAndroidApp
  * Indica a Hilt que es una aplicación de Android.
  */
 @HiltAndroidApp
-class ProductAplication : Application() {
+class AppApplication : Application() {
 }

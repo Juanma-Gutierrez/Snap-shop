@@ -11,7 +11,7 @@ import javax.inject.Singleton
  */
 
 @Singleton
-class ProductApiRepository @Inject constructor(
+class ApiRepository @Inject constructor(
     private val service: ProductService
 ) {
     /**

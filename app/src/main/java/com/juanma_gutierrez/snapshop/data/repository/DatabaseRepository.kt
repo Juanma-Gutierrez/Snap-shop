@@ -1,6 +1,9 @@
 package com.juanma_gutierrez.snapshop.data.repository
 
-import com.juanma_gutierrez.snapshop.data.api.ProductApiRepository
+import android.util.Log
+import com.juanma_gutierrez.snapshop.data.api.ApiRepository
+import com.juanma_gutierrez.snapshop.data.local.cart.CartDao
+import com.juanma_gutierrez.snapshop.data.local.cart.CartEntity
 import com.juanma_gutierrez.snapshop.data.models.asEntityModelList
 import com.juanma_gutierrez.snapshop.data.local.product.ProductLocalRepository
 import com.juanma_gutierrez.snapshop.data.local.product.asListProducts
@@ -18,9 +21,10 @@ import javax.inject.Singleton
  * @property apiRepository Repositorio de la API para datos de productos.
  */
 @Singleton
-data class ProductsRepository @Inject constructor(
+data class DatabaseRepository @Inject constructor(
     private val localRepository: ProductLocalRepository,
-    private val apiRepository: ProductApiRepository
+    private val apiRepository: ApiRepository,
+    private val cartDao: CartDao
 ) {
     /**
      * Un flujo que representa todos los productos, obtenidos de la fuente local.
@@ -38,8 +42,24 @@ data class ProductsRepository @Inject constructor(
      */
     suspend fun refreshList() = withContext(Dispatchers.IO) {
         val productsApiModelList = apiRepository.getAll()
-        localRepository.insert(productsApiModelList.asEntityModelList())
+        localRepository.insertProduct(productsApiModelList.asEntityModelList())
     }
+
+    suspend fun insertProductCart(cartItem: CartEntity) {
+        Log.d("testing", "Entra en insertProductCart ${cartItem.productId}")
+        cartDao.insertProductCart(cartItem)
+    }
+
+
+
+    /*
+        val allProductsCart: Flow<List<Cart>>
+            get() {
+                return localRepository.allProductsCart.map { listProductsCart ->
+                    listProductsCart.asListProductsCart()
+                }
+            }
+     */
 }
 
 

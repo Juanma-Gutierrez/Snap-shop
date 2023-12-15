@@ -5,9 +5,35 @@ import androidx.room.PrimaryKey
 
 @Entity("cart")
 data class CartEntity(
-    @PrimaryKey val id: Int,
-    val product: String,
-    val productImage: String,
-    val price: Double,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = null,
+    val productId: Int,
     val quantity: Int
-)
+) {
+    /**
+     * Convierte la entidad [CartEntity] a un objeto [Cart].
+     * @return El objeto [Cart].
+     */
+  /*
+    fun asCartItem(): Cart {
+        return Cart(
+            productId,
+            quantity
+        )
+    }
+
+   */
+}
+
+
+/**
+ * Extensión de la lista de [CartEntity] que convierte la lista a una lista de [Cart].
+ * @return La lista de [Cart].
+ */
+/* fun List<CartEntity>.asListProductsCart(): List<Cart> {
+    return this.map {
+        it.asCartItem()
+    }
+    }
+ */
+

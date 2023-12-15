@@ -16,16 +16,20 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation.findNavController
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.adapter.ProductAdapter
+import com.juanma_gutierrez.snapshop.data.repository.CartService
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Fragment que muestra una lista de productos en un recycler view.
  */
 @AndroidEntryPoint
-class ProductListFragment : Fragment() {
+class ProductListFragment @Inject constructor() : Fragment() {
+    @Inject
+    lateinit var cartSvc: CartService
     private lateinit var binding: FragmentProductListBinding
     private val viewModel: ProductListViewModel by viewModels()
 
@@ -51,7 +55,7 @@ class ProductListFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect {
                     binding.llIsLoading.visibility = View.GONE
-                    val adapter = ProductAdapter(it, ::onDetail)
+                    val adapter = ProductAdapter(it, ::onDetail, cartSvc)
                     binding.rvFragmentProductList.adapter = adapter
                 }
             }
