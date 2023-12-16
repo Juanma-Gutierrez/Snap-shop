@@ -6,9 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.products.ProductDetailFragment">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tb_topbar_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_light_inversePrimary"
+        android:icon="@drawable/baseline_share_24"
+        android:iconTint="@color/white"
+        android:title="@string/share"
+        app:menu="@menu/top_product_detail_toolbar"
+        app:showAsAction="always" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/top_menu_height">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

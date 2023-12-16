@@ -40,7 +40,7 @@ class CartFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val mainActivity = activity as? MainActivity
-        mainActivity?.hideTopToolBar()
+        mainActivity?.hideToplistToolBar()
     }
 
     /**

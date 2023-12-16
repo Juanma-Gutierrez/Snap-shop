@@ -24,4 +24,7 @@
     <string name="zip_code">Código postal:</string>
     <string name="phone">Teléfono:</string>
     <string name="user_data">Datos del usuario</string>
+    <string name="share">Compartir</string>
+    <string name="filter">Filtrar productos</string>
+    <string name="share_text">Mira lo que he encontrado: %1s %2s %3s</string>
 </resources>

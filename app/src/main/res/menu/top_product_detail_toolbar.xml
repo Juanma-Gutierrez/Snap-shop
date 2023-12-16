@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tb_topbar_share_button"
+        android:icon="@drawable/baseline_share_24"
+        android:iconTint="@color/white"
+        android:title="@string/share"
+        app:showAsAction="always"/>
+</menu>

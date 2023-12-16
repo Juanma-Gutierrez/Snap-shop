@@ -23,5 +23,8 @@
     <string name="zip_code">Zip code:</string>
     <string name="phone">Phone:</string>
     <string name="user_data">User data</string>
+    <string name="share">Share</string>
+    <string name="filter">Filter products</string>
+    <string name="share_text">Look  what I found: %1s %2s %3s</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

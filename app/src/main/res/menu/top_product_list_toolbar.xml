@@ -4,9 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/tb_topTopbar_icon_filter"
-        android:icon="@drawable/filter"
+        android:id="@+id/tb_topTopbar_filter_button"
+        android:icon="@drawable/baseline_tune_24"
         android:iconTint="@color/white"
-        android:title="Filtrar artículos"
+        android:title="@string/filter"
         app:showAsAction="always"/>
 </menu>

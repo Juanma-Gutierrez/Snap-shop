@@ -1,8 +1,11 @@
 package com.juanma_gutierrez.snapshop.ui.products
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -19,6 +22,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 /**
  * Fragment que muestra los detalles de un producto.
@@ -40,7 +44,7 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val mainActivity = activity as? MainActivity
-        mainActivity?.hideTopToolBar()
+        // mainActivity?.showTopListToolBar("detail")
     }
 
     /**
@@ -54,7 +58,6 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
         binding = FragmentProductDetailBinding.inflate(
             inflater, container, false
         )
-
         return binding.root
     }
 
@@ -63,7 +66,6 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val selectedProduct: Product = args.product
         Glide.with(view)
             .load(selectedProduct.image)
@@ -89,5 +91,35 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
                 }
             }
         }
+        binding.tbTopbarDetail?.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.tb_topbar_share_button -> {
+                    onShare(selectedProduct)
+                    true // Devuelve true para indicar que el evento ha sido manejado
+                }
+                else -> false
+            }
+        }
+    }
+
+    /**
+     * Comparte la información del producto seleccionado.
+     *
+     * @param selectedProduct El producto seleccionado que se compartirá.
+     */
+    private fun onShare(selectedProduct: Product) {
+        val shareText = getString(
+            R.string.share_text,
+            selectedProduct.title,
+            selectedProduct.category,
+            selectedProduct.price.toString()
+        )
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, shareText)
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(intent, null)
+        startActivity(shareIntent)
     }
 }

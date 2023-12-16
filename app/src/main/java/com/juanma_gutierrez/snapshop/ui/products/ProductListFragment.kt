@@ -40,7 +40,7 @@ class ProductListFragment @Inject constructor() : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val mainActivity = activity as? MainActivity
-        mainActivity?.showTopToolBar()
+        mainActivity?.showTopListToolBar("list")
     }
 
     /**
@@ -52,7 +52,6 @@ class ProductListFragment @Inject constructor() : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProductListBinding.inflate(inflater, container, false)
-        binding.llIsLoading.visibility = VISIBLE
         return binding.root
     }
 
@@ -62,11 +61,12 @@ class ProductListFragment @Inject constructor() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
+            binding.llIsLoading.visibility = VISIBLE
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect {
-                    binding.llIsLoading.visibility = View.GONE
                     val adapter = ProductAdapter(it, ::onDetail, cartSvc)
                     binding.rvFragmentProductList.adapter = adapter
+                    binding.llIsLoading.visibility = View.GONE
                 }
             }
         }
