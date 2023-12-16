@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
-import com.juanma_gutierrez.snapshop.data.repository.CartService
+import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
 // import com.juanma_gutierrez.snapshop.services.CartService
@@ -26,7 +26,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ProductDetailFragment @Inject constructor() : Fragment() {
     @Inject
-    lateinit var cartSvc: CartService
+    lateinit var cartSvc: CartViewModel
     private lateinit var binding: FragmentProductDetailBinding
     private val args: ProductDetailFragmentArgs by navArgs()
     val svc = Services()

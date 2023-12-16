@@ -23,6 +23,11 @@ class ProductLocalRepository @Inject constructor(
     val allProducts: Flow<List<ProductEntity>> = productDao.getAllProducts()
 
     /**
+     * Un flujo que representa todos los productos del carrito de la base de datos local.
+     */
+    val allProductsCart: Flow<List<CartEntity>> = cartDao.getAllProductsCart()
+
+    /**
      * Inserta una lista de entidades de productos en la base de datos local.
      * @param listProductEntity La lista de entidades de productos que se insertarán.
      */
@@ -30,16 +35,6 @@ class ProductLocalRepository @Inject constructor(
     suspend fun insertProduct(listProductEntity: List<ProductEntity>) =
         productDao.createProduct(listProductEntity)
 
-    /**
-     * Un flujo que representa todos los productos recuperados de la base de datos local.
-     */
-    val allProductsCart: Flow<List<CartEntity>> = cartDao.getAllProductsCart()
-
-    /*
-    @WorkerThread
-    suspend fun insertCart(listProductEntity: List<CartEntity>) =
-        cartDao.createCart(listProductEntity)
-*/
 
     suspend fun insertProductCart(cartEntity: CartEntity) {
         cartDao.insertProductCart(cartEntity)

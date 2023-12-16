@@ -1,7 +1,6 @@
 package com.juanma_gutierrez.snapshop.data.local.cart
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -25,6 +24,6 @@ interface CartDao {
     @Update
     suspend fun updateCartItem(cartItem: CartEntity)
 
-    @Delete
-    suspend fun deleteCartItem(cartItem: CartEntity)
+    @Query("DELETE FROM cart WHERE productId = :productId")
+    suspend fun deleteCartItem(productId: Int)
 }

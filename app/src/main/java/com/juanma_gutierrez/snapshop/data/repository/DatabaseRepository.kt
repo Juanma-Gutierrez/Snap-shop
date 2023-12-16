@@ -58,19 +58,21 @@ data class DatabaseRepository @Inject constructor(
         }
     }
 
-    suspend fun deleteProductCart(cartItem: CartEntity) {
+    suspend fun deleteProductCart(cartItem: CartEntity): Boolean {
         val existingCartItem = cartDao.getCartItem(cartItem.productId)
         if (existingCartItem != null) {
             // El producto ya existe, actualiza la cantidad
-            if (existingCartItem.quantity > 0) {
+            if (existingCartItem.quantity > 1) {
                 val updatedQuantity = existingCartItem.quantity - 1
                 val updatedCartItem = existingCartItem.copy(quantity = updatedQuantity)
                 cartDao.updateCartItem(updatedCartItem)
             } else {
                 // El producto está a 0, realiza su borrado
-                cartDao.deleteCartItem(cartItem)
+                Log.d("testing", "borrando producto porque está a 0")
+                cartDao.deleteCartItem(cartItem.productId)
             }
         }
+        return true
     }
 
     val allProductsCart: Flow<List<CartEntity>>

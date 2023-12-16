@@ -9,8 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.juanma_gutierrez.snapshop.R
-import com.juanma_gutierrez.snapshop.data.api.ProductApi
-import com.juanma_gutierrez.snapshop.data.repository.CartService
+import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.ProductItemBinding
 import com.juanma_gutierrez.snapshop.services.Services
@@ -26,7 +25,7 @@ import kotlinx.coroutines.launch
 class ProductAdapter(
     private val dataset: List<Product>,
     private val onDetail: ((product: Product, view: View) -> Unit),
-    private val cartSvc: CartService
+    private val cartSvc: CartViewModel
 ) : RecyclerView.Adapter<ProductAdapter.ItemViewHolder>() {
 
     /**

@@ -1,13 +1,10 @@
 package com.juanma_gutierrez.snapshop.ui.products
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -16,7 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation.findNavController
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.adapter.ProductAdapter
-import com.juanma_gutierrez.snapshop.data.repository.CartService
+import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +26,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ProductListFragment @Inject constructor() : Fragment() {
     @Inject
-    lateinit var cartSvc: CartService
+    lateinit var cartSvc: CartViewModel
     private lateinit var binding: FragmentProductListBinding
     private val viewModel: ProductListViewModel by viewModels()
 

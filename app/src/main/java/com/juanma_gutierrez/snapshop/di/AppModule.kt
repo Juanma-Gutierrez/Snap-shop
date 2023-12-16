@@ -4,7 +4,7 @@ import android.content.Context
 import com.juanma_gutierrez.snapshop.data.local.cart.CartDao
 import com.juanma_gutierrez.snapshop.data.local.product.ProductDao
 import com.juanma_gutierrez.snapshop.data.local.database.ProductsDatabase
-import com.juanma_gutierrez.snapshop.data.repository.CartService
+import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.DatabaseRepository
 import dagger.Module
 import dagger.Provides
@@ -54,7 +54,7 @@ object AppModule {
     @Provides
     fun provideCartService(
         databaseRepository: DatabaseRepository
-    ): CartService {
-        return CartService(databaseRepository)
+    ): CartViewModel {
+        return CartViewModel(databaseRepository)
     }
 }
