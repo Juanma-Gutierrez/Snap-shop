@@ -15,13 +15,17 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Servicio para gestionar operaciones relacionadas con el carrito de compras.
+ * ViewModel para gestionar operaciones relacionadas con el carrito de compras.
  */
 @Singleton
 class CartViewModel @Inject constructor(
     private val databaseRepository: DatabaseRepository
 ) {
 
+    /**
+     * Método para agregar un producto al carrito.
+     * @param product El producto a agregar al carrito.
+     */
     suspend fun addToCart(product: Product) = withContext(Dispatchers.IO) {
         val cartItem = CartEntity(
             productId = product.id,
@@ -30,18 +34,24 @@ class CartViewModel @Inject constructor(
             productPrice = product.price,
             quantity = 1
         )
-        Log.d("testing", "Insertando item ${cartItem.id}, cantidad ${cartItem.quantity}")
         databaseRepository.insertProductCart(cartItem)
     }
 
+    /**
+     * Flujo que representa todos los productos en el carrito.
+     */
     val allProductsCart: Flow<List<CartEntity>>
         get() {
             return databaseRepository.allProductsCart
         }
 
+    /**
+     * Método para eliminar un producto del carrito.
+     * @param cartItem El elemento del carrito a eliminar.
+     * @return `true` si la operación es exitosa, `false` en caso contrario.
+     */
     suspend fun deleteFromCart(cartItem: Cart): Boolean = withContext(Dispatchers.IO) {
         try {
-            Log.d("testing", "Eliminando item ${cartItem}")
             val itemToDelete = CartEntity(
                 productId = cartItem.productId,
                 productName = cartItem.productName,
@@ -57,7 +67,10 @@ class CartViewModel @Inject constructor(
         }
     }
 
-
+    /**
+     * Método para obtener la cantidad de elementos en el carrito.
+     * @return La cantidad de elementos en el carrito.
+     */
     suspend fun getSize(): Int {
         return databaseRepository.allProductsCart.count()
     }

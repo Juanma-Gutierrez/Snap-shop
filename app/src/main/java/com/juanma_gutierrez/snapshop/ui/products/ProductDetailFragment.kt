@@ -12,7 +12,6 @@ import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
-// import com.juanma_gutierrez.snapshop.services.CartService
 import com.juanma_gutierrez.snapshop.services.Services
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope

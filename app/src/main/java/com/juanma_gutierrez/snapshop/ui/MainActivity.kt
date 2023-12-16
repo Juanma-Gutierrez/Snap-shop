@@ -3,7 +3,6 @@ package com.juanma_gutierrez.snapshop.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -11,17 +10,15 @@ import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint // Necesario para Hilt
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Infla el diseño de la actividad usando el enlace generado por ViewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         // Configurar la Toolbar y manejar clics en los elementos del menú
         binding.topTbToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
@@ -32,17 +29,13 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
         // Encuentra el fragmento de NavHost en el diseño
         val navHostFragment =
             supportFragmentManager.findFragmentById(binding.navHostFragment.id) as NavHostFragment
-
         // Obtiene el NavController desde el NavHostFragment
         navController = navHostFragment.navController
-
         val color = ContextCompat.getColor(this@MainActivity, R.color.md_theme_light_inversePrimary)
         binding.topTbToolbar.setBackgroundColor(color)
-
         // Asigna navegación a los botones del bottomBar
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -52,9 +45,5 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-    }
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -36,13 +36,6 @@ fun List<ProductApiModel>.asEntityModelList(): List<ProductEntity> {
 }
 
 /**
- * Respuesta de lista de productos obtenidos de la API.
- */
-data class ProductListResponse(
-    val results: List<ProductDetailResponse>
-)
-
-/**
  * Respuesta detallada de un producto obtenido de la API.
  */
 data class ProductDetailResponse(
@@ -72,6 +65,17 @@ data class ProductDetailResponse(
     }
 }
 
+/**
+ * Clase de datos que representa la respuesta de un usuario desde la API.
+ *
+ * @property id El identificador único del usuario.
+ * @property email La dirección de correo electrónico del usuario.
+ * @property username El nombre de usuario del usuario.
+ * @property password La contraseña del usuario.
+ * @property name El objeto [UserName] que contiene el nombre y apellido del usuario.
+ * @property address El objeto [UserAddress] que contiene la dirección del usuario.
+ * @property phone El número de teléfono del usuario.
+ */
 data class UserResponse(
     val id: Int,
     val email: String,
@@ -102,11 +106,25 @@ data class UserResponse(
     }
 }
 
+/**
+ * Clase de datos que representa el nombre de un usuario.
+ *
+ * @property firstname El primer nombre del usuario.
+ * @property lastname El apellido del usuario.
+ */
 data class UserName(
     val firstname: String,
     val lastname: String,
 )
 
+/**
+ * Clase de datos que representa la dirección de un usuario.
+ *
+ * @property city La ciudad de residencia del usuario.
+ * @property street La calle de residencia del usuario.
+ * @property number El número de residencia del usuario.
+ * @property zipcode El código postal de la residencia del usuario.
+ */
 data class UserAddress(
     val city: String,
     val street: String,
@@ -114,6 +132,21 @@ data class UserAddress(
     val zipcode: String,
 )
 
+/**
+ * Clase de datos que representa un usuario.
+ *
+ * @property id El identificador único del usuario.
+ * @property email La dirección de correo electrónico del usuario.
+ * @property userName El nombre de usuario del usuario.
+ * @property password La contraseña del usuario.
+ * @property firstName El primer nombre del usuario.
+ * @property surname El apellido del usuario.
+ * @property city La ciudad de residencia del usuario.
+ * @property street La calle de residencia del usuario.
+ * @property number El número de residencia del usuario.
+ * @property zipcode El código postal de la residencia del usuario.
+ * @property phone El número de teléfono del usuario.
+ */
 data class User(
     val id: Int,
     val email: String,

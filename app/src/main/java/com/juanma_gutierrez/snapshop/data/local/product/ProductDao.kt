@@ -4,8 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.juanma_gutierrez.snapshop.data.local.product.ProductEntity
-import kotlinx.coroutines.flow.Flow // Sirve para crear un observable
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Interfaz DAO (Objeto de Acceso a Datos) para la entidad de productos.

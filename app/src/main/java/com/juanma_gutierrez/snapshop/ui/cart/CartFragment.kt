@@ -21,13 +21,18 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * Fragmento que muestra los elementos del carrito de compras.
+ */
 @AndroidEntryPoint
 class CartFragment : Fragment() {
     @Inject
     lateinit var cartSvc: CartViewModel
     private lateinit var binding: FragmentCartBinding
 
-
+    /**
+     * Método llamado al crear la vista del fragmento.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +41,9 @@ class CartFragment : Fragment() {
         return binding.root
     }
 
+    /**
+     * Método llamado cuando la vista ha sido creada.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cartIsEmpty()
@@ -74,7 +82,9 @@ class CartFragment : Fragment() {
         }
     }
 
-
+    /**
+     * Método llamado cuando se agrega un elemento al carrito.
+     */
     fun addItemListener(item: Cart) {
         // Lanzar la llamada a deleteFromCart en un nuevo CoroutineScope
         CoroutineScope(Dispatchers.Main).launch {
@@ -82,6 +92,9 @@ class CartFragment : Fragment() {
         }
     }
 
+    /**
+     * Método llamado cuando se elimina un elemento del carrito.
+     */
     fun removeItemListener(item: Cart) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
@@ -97,14 +110,20 @@ class CartFragment : Fragment() {
         }
     }
 
+    /**
+     * Método llamado cuando el carrito está vacío.
+     */
     private fun cartIsEmpty() {
         binding.tvFtCartCartTitle.visibility = GONE
         binding.tvFrCartTotalTitle.visibility = GONE
         binding.tvFtCartTotal.visibility = GONE
-        // emptyCartMessage hidden
+        // emptyCartMessage visible
         binding.llFtCartEmptyCart.visibility = VISIBLE
     }
 
+    /**
+     * Método llamado cuando el carrito contiene elementos.
+     */
     fun cartHasItem() {
         binding.tvFtCartCartTitle.visibility = VISIBLE
         binding.tvFrCartTotalTitle.visibility = VISIBLE

@@ -11,6 +11,7 @@ import javax.inject.Singleton
  * Clase singleton que sirve como repositorio local para manejar datos de productos desde una base
  * de datos local.
  * @property productDao El Objeto de Acceso a Datos (DAO) para entidades de productos.
+ * @property cartDao El Objeto de Acceso a Datos (DAO) para entidades de carrito.
  */
 @Singleton
 class ProductLocalRepository @Inject constructor(
@@ -34,10 +35,5 @@ class ProductLocalRepository @Inject constructor(
     @WorkerThread
     suspend fun insertProduct(listProductEntity: List<ProductEntity>) =
         productDao.createProduct(listProductEntity)
-
-
-    suspend fun insertProductCart(cartEntity: CartEntity) {
-        cartDao.insertProductCart(cartEntity)
-    }
 }
 

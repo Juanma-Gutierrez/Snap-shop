@@ -3,6 +3,7 @@ package com.juanma_gutierrez.snapshop.services
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.snackbar.Snackbar
+import com.juanma_gutierrez.snapshop.R
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -12,6 +13,7 @@ import java.util.Locale
 class Services {
     /**
      * Formatea el precio en formato de moneda según la configuración regional.
+     *
      * @param price El precio a formatear.
      * @return El precio formateado como una cadena de moneda.
      */
@@ -21,6 +23,12 @@ class Services {
         return currencyFormatter.format(price)
     }
 
+    /**
+     * Muestra un SnackBar con el mensaje dado en la vista proporcionada.
+     *
+     * @param message El mensaje a mostrar en el SnackBar.
+     * @param view La vista en la que se mostrará el SnackBar.
+     */
     fun showSnackBar(message: String, view: View) {
         val snackBar = Snackbar.make(
             view,

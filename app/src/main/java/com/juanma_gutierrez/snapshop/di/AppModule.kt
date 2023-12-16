@@ -23,7 +23,8 @@ import javax.inject.Singleton
 object AppModule {
     /**
      * Provee la instancia única de la base de datos de productos.
-     * @param context El contexto de la aplicación.
+     *
+     * @param context El contexto de la aplicación proporcionado por Dagger Hilt.
      * @return La instancia de la base de datos de productos.
      */
     @Singleton
@@ -34,6 +35,7 @@ object AppModule {
 
     /**
      * Provee el DAO (Objeto de Acceso a Datos) de productos.
+     *
      * @param database La base de datos de productos.
      * @return El DAO de productos.
      */
@@ -43,13 +45,24 @@ object AppModule {
         return database.productDao()
     }
 
-
+    /**
+     * Provee el DAO (Objeto de Acceso a Datos) de carrito.
+     *
+     * @param database La base de datos de productos.
+     * @return El DAO de carrito.
+     */
     @Singleton
     @Provides
     fun provideCartDao(database: ProductsDatabase): CartDao {
         return database.cartDao()
     }
 
+    /**
+     * Provee el servicio del carrito.
+     *
+     * @param databaseRepository El repositorio de la base de datos.
+     * @return El ViewModel del carrito.
+     */
     @Singleton
     @Provides
     fun provideCartService(

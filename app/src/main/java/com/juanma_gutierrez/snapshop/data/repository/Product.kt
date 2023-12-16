@@ -5,6 +5,14 @@ import kotlinx.parcelize.Parcelize
 
 /**
  * Clase de datos que representa un producto.
+ *
+ * @property id El identificador del producto.
+ * @property title El título del producto.
+ * @property price El precio del producto.
+ * @property description La descripción del producto.
+ * @property category La categoría del producto.
+ * @property image La URL de la imagen del producto, puede ser nula.
+ * @property rating La calificación del producto, puede ser nula.
  */
 @Parcelize
 data class Product(

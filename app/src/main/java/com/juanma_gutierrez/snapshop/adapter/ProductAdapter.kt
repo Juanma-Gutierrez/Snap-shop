@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
  * Clase de adaptador para manejar la visualización de elementos de productos en un RecyclerView.
  * @param dataset La lista de productos a mostrar.
  * @param onDetail Función de devolución de llamada que se invoca al hacer clic en un producto.
+ * @param cartSvc El servicio del carrito que gestiona las operaciones relacionadas con el carrito.
  */
 class ProductAdapter(
     private val dataset: List<Product>,
@@ -81,7 +82,6 @@ class ProductAdapter(
         holder.iv_cart.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
                 try {
-                    Log.d("testing", "Click en ${product.title}")
                     cartSvc.addToCart(product)
                     svc.showSnackBar("Producto añadido al carrito", holder.itemView)
                 } catch (e: Exception) {
@@ -91,7 +91,6 @@ class ProductAdapter(
         }
 
     }
-
 
     /**
      * Obtiene el número total de elementos en el conjunto de datos.

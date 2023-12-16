@@ -3,6 +3,15 @@ package com.juanma_gutierrez.snapshop.data.local.cart
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Clase de entidad que representa un elemento del carrito en la base de datos local.
+ * @param id El ID único del elemento del carrito (generado automáticamente).
+ * @param productId El ID del producto asociado al elemento del carrito.
+ * @param productName El nombre del producto asociado al elemento del carrito.
+ * @param productImage La URL de la imagen del producto asociado al elemento del carrito.
+ * @param productPrice El precio del producto asociado al elemento del carrito.
+ * @param quantity La cantidad del producto en el carrito.
+ */
 @Entity(tableName = "cart")
 data class CartEntity(
     @PrimaryKey(autoGenerate = true)
@@ -12,31 +21,4 @@ data class CartEntity(
     val productImage: String,
     val productPrice: Double,
     val quantity: Int
-) {
-    /**
-     * Convierte la entidad [CartEntity] a un objeto [Cart].
-     * @return El objeto [Cart].
-     */
-    /*
-      fun asCartItem(): Cart {
-          return Cart(
-              productId,
-              quantity
-          )
-      }
-
-     */
-}
-
-
-/**
- * Extensión de la lista de [CartEntity] que convierte la lista a una lista de [Cart].
- * @return La lista de [Cart].
- */
-/* fun List<CartEntity>.asListProductsCart(): List<Cart> {
-    return this.map {
-        it.asCartItem()
-    }
-    }
- */
-
+)

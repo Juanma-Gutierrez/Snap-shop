@@ -1,6 +1,5 @@
 package com.juanma_gutierrez.snapshop.data.repository
 
-import android.util.Log
 import com.juanma_gutierrez.snapshop.data.api.ApiRepository
 import com.juanma_gutierrez.snapshop.data.local.cart.CartDao
 import com.juanma_gutierrez.snapshop.data.local.cart.CartEntity
@@ -45,6 +44,11 @@ data class DatabaseRepository @Inject constructor(
         localRepository.insertProduct(productsApiModelList.asEntityModelList())
     }
 
+    /**
+     * Inserta un elemento en el carrito de compras.
+     *
+     * @param cartItem El elemento del carrito a insertar.
+     */
     suspend fun insertProductCart(cartItem: CartEntity) {
         val existingCartItem = cartDao.getCartItem(cartItem.productId)
         if (existingCartItem != null) {
@@ -58,6 +62,12 @@ data class DatabaseRepository @Inject constructor(
         }
     }
 
+    /**
+     * Elimina un elemento del carrito de compras.
+     *
+     * @param cartItem El elemento del carrito a eliminar.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
+     */
     suspend fun deleteProductCart(cartItem: CartEntity): Boolean {
         val existingCartItem = cartDao.getCartItem(cartItem.productId)
         if (existingCartItem != null) {
@@ -68,20 +78,21 @@ data class DatabaseRepository @Inject constructor(
                 cartDao.updateCartItem(updatedCartItem)
             } else {
                 // El producto está a 0, realiza su borrado
-                Log.d("testing", "borrando producto porque está a 0")
                 cartDao.deleteCartItem(cartItem.productId)
             }
         }
         return true
     }
 
+    /**
+     * Un flujo que representa todos los elementos del carrito de compras.
+     *
+     * @return Un flujo de la lista de elementos del carrito.
+     */
     val allProductsCart: Flow<List<CartEntity>>
         get() {
             return localRepository.allProductsCart.map { item ->
                 item
             }
         }
-
 }
-
-

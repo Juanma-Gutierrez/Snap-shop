@@ -59,6 +59,9 @@ class ProductListFragment @Inject constructor() : Fragment() {
         }
     }
 
+    /**
+     * Navega al detalle del producto al hacer clic en él.
+     */
     fun onDetail(product: Product, view: View) {
         val bundle = Bundle()
         bundle.putParcelable("product", product)

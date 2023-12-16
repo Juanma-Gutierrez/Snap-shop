@@ -1,7 +1,6 @@
 package com.juanma_gutierrez.snapshop.data.api
 
 import com.juanma_gutierrez.snapshop.data.models.ProductApiModel
-import com.juanma_gutierrez.snapshop.data.models.User
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,10 +22,5 @@ class ApiRepository @Inject constructor(
         return simpleList.map { p ->
             service.api.getDetail(p.id).asApiModel()
         }
-    }
-
-    suspend fun getUser(userId:String): User {
-        val userData = service.api.getUserDetail(userId)
-        return userData.asUser()
     }
 }

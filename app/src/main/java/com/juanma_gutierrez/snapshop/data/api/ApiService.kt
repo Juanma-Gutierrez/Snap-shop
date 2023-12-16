@@ -36,6 +36,8 @@ class ProductService @Inject constructor() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    // Genera la api con el método create
+    /**
+     * Instancia de la API de productos creada a través de Retrofit.
+     */
     val api: ProductApi = retrofit.create(ProductApi::class.java)
 }

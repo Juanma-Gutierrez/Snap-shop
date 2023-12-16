@@ -16,22 +16,25 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
+/**
+ * Fragmento que muestra detalles del usuario.
+ */
 class UserFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadUser("1")
+        loadUser("1") // Carga el usuario 1
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user, container, false)
     }
 
-    // Prepara la llamada de retrofit
+    /**
+     * Configura y devuelve una instancia de Retrofit para realizar llamadas a la API.
+     */
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://fakestoreapi.com/")
@@ -39,6 +42,10 @@ class UserFragment : Fragment() {
             .build()
     }
 
+    /**
+     * Carga los detalles del usuario utilizando Retrofit y la API de productos falsos.
+     * @param userId El ID del usuario a cargar.
+     */
     private fun loadUser(userId: String) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
@@ -51,8 +58,12 @@ class UserFragment : Fragment() {
         }
     }
 
+    /**
+     * Llena la interfaz con los datos del usuario.
+     * @param user El objeto User con los detalles del usuario.
+     */
     private fun loadData(user: User) {
-        val userName:TextView? = view?.findViewById(R.id.tv_frUser_user_name)
+        val userName: TextView? = view?.findViewById(R.id.tv_frUser_user_name)
         val name: TextView? = view?.findViewById(R.id.tv_frUser_first_name)
         val surname: TextView? = view?.findViewById(R.id.tv_fruser_surname)
         val email: TextView? = view?.findViewById(R.id.tv_fruser_email)
@@ -61,7 +72,8 @@ class UserFragment : Fragment() {
         val number: TextView? = view?.findViewById(R.id.tv_fruser_number)
         val zipCode: TextView? = view?.findViewById(R.id.tv_fruser_zipcode)
         val phone: TextView? = view?.findViewById(R.id.tv_fruser_phone)
-        
+
+        // Llena los elementos de la interfaz con los datos del usuario
         userName?.text = user.userName
         name?.text = user.firstName
         surname?.text = user.surname
@@ -70,7 +82,6 @@ class UserFragment : Fragment() {
         street?.text = user.street
         number?.text = user.number.toString()
         zipCode?.text = user.zipcode
-        phone?.text=user.phone
+        phone?.text = user.phone
     }
-
 }
