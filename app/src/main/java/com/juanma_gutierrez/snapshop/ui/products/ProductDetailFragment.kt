@@ -13,6 +13,7 @@ import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductDetailBinding
 import com.juanma_gutierrez.snapshop.services.Services
+import com.juanma_gutierrez.snapshop.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +32,18 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
     val svc = Services()
 
     /**
+     * Método invocado cuando la actividad asociada al fragmento ha sido creada.
+     * Se utiliza para ocultar la barra superior (toolbar) de la actividad principal, si está presente.
+     *
+     * @param savedInstanceState El estado de la instancia guardada de la actividad.
+     */
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val mainActivity = activity as? MainActivity
+        mainActivity?.hideTopToolBar()
+    }
+
+    /**
      * Crea y retorna la vista asociada al fragment.
      */
     override fun onCreateView(
@@ -41,6 +54,7 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
         binding = FragmentProductDetailBinding.inflate(
             inflater, container, false
         )
+
         return binding.root
     }
 

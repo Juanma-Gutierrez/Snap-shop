@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.data.api.ProductApi
 import com.juanma_gutierrez.snapshop.data.models.User
+import com.juanma_gutierrez.snapshop.ui.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,11 +21,39 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Fragmento que muestra detalles del usuario.
  */
 class UserFragment : Fragment() {
+
+    /**
+     * Método invocado cuando la actividad asociada al fragmento ha sido creada.
+     * Se utiliza para ocultar la barra superior (toolbar) de la actividad principal, si está presente.
+     *
+     * @param savedInstanceState El estado de la instancia guardada de la actividad.
+     */
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val mainActivity = activity as? MainActivity
+        mainActivity?.hideTopToolBar()
+    }
+
+    /**
+     * Método invocado cuando la actividad está creando su instancia.
+     * Se utiliza para cargar la información del usuario con identificador "1".
+     *
+     * @param savedInstanceState El estado de la instancia guardada de la actividad.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadUser("1") // Carga el usuario 1
     }
 
+    /**
+     * Método llamado para crear y devolver la vista asociada al fragmento.
+     * Infla el diseño del fragmento a partir del recurso de diseño definido en R.layout.fragment_user.
+     *
+     * @param inflater El inflador que se utiliza para inflar el diseño del fragmento.
+     * @param container El contenedor en el que se debe colocar la vista del fragmento.
+     * @param savedInstanceState El estado de la instancia guardada del fragmento.
+     * @return La vista del fragmento o null si no se puede crear la vista.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

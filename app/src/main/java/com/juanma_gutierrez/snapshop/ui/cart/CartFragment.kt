@@ -14,6 +14,7 @@ import com.juanma_gutierrez.snapshop.adapter.CartItemAdapter
 import com.juanma_gutierrez.snapshop.data.repository.Cart
 import com.juanma_gutierrez.snapshop.databinding.FragmentCartBinding
 import com.juanma_gutierrez.snapshop.services.Services
+import com.juanma_gutierrez.snapshop.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +30,18 @@ class CartFragment : Fragment() {
     @Inject
     lateinit var cartSvc: CartViewModel
     private lateinit var binding: FragmentCartBinding
+
+    /**
+     * Método invocado cuando la actividad asociada al fragmento ha sido creada.
+     * Se utiliza para ocultar la barra superior (toolbar) de la actividad principal, si está presente.
+     *
+     * @param savedInstanceState El estado de la instancia guardada de la actividad.
+     */
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val mainActivity = activity as? MainActivity
+        mainActivity?.hideTopToolBar()
+    }
 
     /**
      * Método llamado al crear la vista del fragmento.

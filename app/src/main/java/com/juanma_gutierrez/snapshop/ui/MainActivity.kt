@@ -2,8 +2,11 @@ package com.juanma_gutierrez.snapshop.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.marginTop
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.juanma_gutierrez.snapshop.R
@@ -45,5 +48,29 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+    }
+
+    /**
+     * Muestra la barra superior (Toolbar) de la actividad principal y ajusta el margen superior de la vista principal.
+     * Este método se utiliza para mostrar la interfaz cuando se visualiza la Toolbar.
+     */
+    fun showTopToolBar() {
+        binding.topTbToolbar.visibility = View.VISIBLE
+        val marginValue = resources.getDimensionPixelSize(R.dimen.top_menu_height)
+        val layoutParams = binding.navHostFragment.layoutParams as ViewGroup.MarginLayoutParams
+        layoutParams.topMargin = marginValue
+        binding.navHostFragment.layoutParams = layoutParams
+    }
+
+
+    /**
+     * Oculta la barra superior (Toolbar) de la actividad principal y restablece el margen superior de la vista principal.
+     * Este método se utiliza para ocultar la interfaz cuando se oculta la Toolbar.
+     */
+    fun hideTopToolBar() {
+        binding.topTbToolbar.visibility = View.GONE
+        val layoutParams = binding.navHostFragment.layoutParams as ViewGroup.MarginLayoutParams
+        layoutParams.topMargin = 0
+        binding.navHostFragment.layoutParams = layoutParams
     }
 }

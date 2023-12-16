@@ -16,6 +16,7 @@ import com.juanma_gutierrez.snapshop.adapter.ProductAdapter
 import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.FragmentProductListBinding
+import com.juanma_gutierrez.snapshop.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -29,6 +30,18 @@ class ProductListFragment @Inject constructor() : Fragment() {
     lateinit var cartSvc: CartViewModel
     private lateinit var binding: FragmentProductListBinding
     private val viewModel: ProductListViewModel by viewModels()
+
+    /**
+     * Método invocado cuando la actividad asociada al fragmento ha sido creada.
+     * Se utiliza para mostrar la barra superior (toolbar) de la actividad principal, si está presente.
+     *
+     * @param savedInstanceState El estado de la instancia guardada de la actividad.
+     */
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val mainActivity = activity as? MainActivity
+        mainActivity?.showTopToolBar()
+    }
 
     /**
      * Crea y retorna la vista asociada al fragment.
