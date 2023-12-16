@@ -19,14 +19,32 @@ class CartService @Inject constructor(
 ) {
 
     suspend fun addToCart(product: Product) = withContext(Dispatchers.IO) {
-        val cartItem = CartEntity(productId = product.id, quantity = 1)
+        val cartItem = CartEntity(
+            productId = product.id,
+            productName = product.title,
+            productImage = product.image.orEmpty(),
+            productPrice = product.price,
+            quantity = 1
+        )
         Log.d("testing", "Insertando item ${cartItem.id}, cantidad ${cartItem.quantity}")
         databaseRepository.insertProductCart(cartItem)
     }
-
 
     val allProductsCart: Flow<List<CartEntity>>
         get() {
             return databaseRepository.allProductsCart
         }
+
+    suspend fun deleteFromCart(cartItem: Cart) = withContext(Dispatchers.IO) {
+        Log.d("testing", "Eliminando item ${cartItem}")
+        databaseRepository.deleteProductCart(
+            CartEntity(
+                productId = cartItem.productId,
+                productName = cartItem.productName,
+                productImage = cartItem.productImage.orEmpty(),
+                productPrice = cartItem.productPrice,
+                quantity = cartItem.quantity
+            )
+        )
+    }
 }

@@ -8,7 +8,7 @@ import com.juanma_gutierrez.snapshop.data.repository.Rating
 /**
  * Entidad de Room para representar un producto en la base de datos local.
  */
-@Entity("product")
+@Entity(tableName = "product")
 data class ProductEntity(
     @PrimaryKey val id: Int,
     val title: String?,

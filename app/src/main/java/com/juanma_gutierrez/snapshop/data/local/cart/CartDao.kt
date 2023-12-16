@@ -1,9 +1,11 @@
 package com.juanma_gutierrez.snapshop.data.local.cart
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow // Sirve para crear un observable
 
 /**
@@ -16,4 +18,13 @@ interface CartDao {
 
     @Query("SELECT * FROM cart")
     fun getAllProductsCart(): Flow<List<CartEntity>>
+
+    @Query("SELECT * FROM cart WHERE productId = :productId")
+    suspend fun getCartItem(productId: Int): CartEntity?
+
+    @Update
+    suspend fun updateCartItem(cartItem: CartEntity)
+
+    @Delete
+    suspend fun deleteCartItem(cartItem: CartEntity)
 }
