@@ -42,22 +42,20 @@ class CartViewModel @Inject constructor(
     suspend fun deleteFromCart(cartItem: Cart): Boolean = withContext(Dispatchers.IO) {
         try {
             Log.d("testing", "Eliminando item ${cartItem}")
-            databaseRepository.deleteProductCart(
-                CartEntity(
-                    productId = cartItem.productId,
-                    productName = cartItem.productName,
-                    productImage = cartItem.productImage.orEmpty(),
-                    productPrice = cartItem.productPrice,
-                    quantity = cartItem.quantity
-                )
+            val itemToDelete = CartEntity(
+                productId = cartItem.productId,
+                productName = cartItem.productName,
+                productImage = cartItem.productImage.orEmpty(),
+                productPrice = cartItem.productPrice,
+                quantity = cartItem.quantity
             )
+            databaseRepository.deleteProductCart(itemToDelete)
             return@withContext true
         } catch (e: Exception) {
             Log.e("Error", "Error al eliminar item: $e")
             return@withContext false
         }
     }
-
 
 
     suspend fun getSize(): Int {

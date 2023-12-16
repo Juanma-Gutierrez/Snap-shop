@@ -38,6 +38,7 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        cartIsEmpty()
         lifecycleScope.launchWhenStarted {
             try {
                 cartSvc.allProductsCart.collect { cartItems ->
@@ -45,6 +46,7 @@ class CartFragment : Fragment() {
                     var totalAmount = 0.0
                     // Recorro toda el carrito y lo añado a cartList
                     if (cartItems.isNotEmpty()) {
+                        cartHasItem()
                         for (cartItem in cartItems) {
                             cartList.add(
                                 Cart(
@@ -60,11 +62,10 @@ class CartFragment : Fragment() {
                         }
                         val adapter =
                             CartItemAdapter(view, cartList, ::addItemListener, ::removeItemListener)
-                        cartHasItem()
                         val svc = Services()
-                        binding.rvCartList.adapter = adapter
-                        binding.rvCartList.layoutManager = LinearLayoutManager(requireContext())
-                        binding.tvCartTotal.text = svc.formatPrice(totalAmount)
+                        binding.rvFtCartList.adapter = adapter
+                        binding.rvFtCartList.layoutManager = LinearLayoutManager(requireContext())
+                        binding.tvFtCartTotal.text = svc.formatPrice(totalAmount)
                     }
                 }
             } catch (e: Exception) {
@@ -84,17 +85,11 @@ class CartFragment : Fragment() {
     fun removeItemListener(item: Cart) {
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                val cartItems = cartSvc.allProductsCart.first()
                 val deleted = cartSvc.deleteFromCart(item)
-                if (deleted) {
-                    Log.d("testing", "Elemento eliminado correctamente")
-                    // Verificar si el tamaño después de la eliminación es 0
-                    if (cartItems.isEmpty()) {
-                        Log.d("testing", "Entra a recargar")
-                        requireActivity().recreate() // Recarga el fragment
-                    }
-                } else {
-                    Log.d("testing", "No se eliminó correctamente el elemento del carrito.")
+                val cartItems = cartSvc.allProductsCart.first()
+                if (deleted && cartItems.isEmpty()) {
+                    cartIsEmpty()
+                    requireActivity().recreate() // Recarga el fragment
                 }
             } catch (e: Exception) {
                 Log.e("Error", "Error en removeItemListener: $e")
@@ -102,12 +97,19 @@ class CartFragment : Fragment() {
         }
     }
 
+    private fun cartIsEmpty() {
+        binding.tvFtCartCartTitle.visibility = GONE
+        binding.tvFrCartTotalTitle.visibility = GONE
+        binding.tvFtCartTotal.visibility = GONE
+        // emptyCartMessage hidden
+        binding.llFtCartEmptyCart.visibility = VISIBLE
+    }
 
     fun cartHasItem() {
-        binding.tvCartTotalTitle.visibility = VISIBLE
-        binding.tvCartTotal.visibility = VISIBLE
-        binding.tvCartFragmentTitle.visibility = VISIBLE
+        binding.tvFtCartCartTitle.visibility = VISIBLE
+        binding.tvFrCartTotalTitle.visibility = VISIBLE
+        binding.tvFtCartTotal.visibility = VISIBLE
         // emptyCartMessage hidden
-        binding.llEmptyCart.visibility = GONE
+        binding.llFtCartEmptyCart.visibility = GONE
     }
 }
