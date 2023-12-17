@@ -60,12 +60,10 @@ class ProductListFragment @Inject constructor() : Fragment() {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            binding.llIsLoading.visibility = VISIBLE
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect {
                     val adapter = ProductAdapter(it, ::onDetail, cartSvc)
                     binding.rvFragmentProductList.adapter = adapter
-                    binding.llIsLoading.visibility = View.GONE
                 }
             }
         }

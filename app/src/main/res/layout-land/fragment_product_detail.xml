@@ -14,7 +14,7 @@
         android:icon="@drawable/baseline_share_24"
         android:iconTint="@color/white"
         android:title="@string/share"
-        app:menu="@menu/top_product_detail_toolbar"
+        app:menu="@menu/product_detail_menu"
         app:showAsAction="always" />
 
     <androidx.core.widget.NestedScrollView
