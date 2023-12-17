@@ -51,7 +51,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tb_frFilter_topBar">
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/rb_frFilter_womans"
+                        android:id="@+id/rb_fr_filter_women"
                         style="@style/Widget.Material3.CompoundButton.RadioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                         tools:text="Ropa de hombre" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/rb_frFilter_jewelry"
+                        android:id="@+id/rb_fr_filter_jewelery"
                         style="@style/Widget.Material3.CompoundButton.RadioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -119,14 +119,16 @@
                     android:id="@+id/sb_frFilter_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:max="1000"
+                    android:progress="1000"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_frFilter_minPrice" />
 
                 <androidx.appcompat.widget.AppCompatRatingBar
-                    android:id="@+id/rb_frFilter_5stars"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:id="@+id/rb_frFilter_rating_stars"
+                    style="@style/Widget.AppCompat.RatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_max"
@@ -134,101 +136,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sb_frFilter_price" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_frFilter_check5stars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_mid"
-                    android:src="@drawable/baseline_check_circle_outline_24"
-                    android:tint="@color/md_theme_light_primary"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_5stars"
-                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_5stars"
-                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_5stars" />
-
-                <androidx.appcompat.widget.AppCompatRatingBar
-                    android:id="@+id/rb_frFilter_4stars"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:rating="4"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_5stars" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_frFilter_check4stars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_mid"
-                    android:src="@drawable/baseline_check_circle_outline_24"
-                    android:tint="@color/md_theme_light_primary"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_4stars"
-                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_4stars"
-                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_4stars" />
-
-                <androidx.appcompat.widget.AppCompatRatingBar
-                    android:id="@+id/rb_frFilter_3stars"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:rating="3"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_4stars" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_frFilter_check3stars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_mid"
-                    android:src="@drawable/baseline_check_circle_outline_24"
-                    android:tint="@color/md_theme_light_primary"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_3stars"
-                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_3stars"
-                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_3stars" />
-
-                <androidx.appcompat.widget.AppCompatRatingBar
-                    android:id="@+id/rb_frFilter_2stars"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:rating="2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_3stars" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_frFilter_check2stars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_mid"
-                    android:src="@drawable/baseline_check_circle_outline_24"
-                    android:tint="@color/md_theme_light_primary"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_2stars"
-                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_2stars"
-                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_2stars" />
-
-                <androidx.appcompat.widget.AppCompatRatingBar
-                    android:id="@+id/rb_frFilter_1stars"
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:rating="1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_2stars" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/iv_frFilter_check1stars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_mid"
-                    android:src="@drawable/baseline_check_circle_outline_24"
-                    android:tint="@color/md_theme_light_primary"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_1stars"
-                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_1stars"
-                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_1stars" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/bt_frFilter_resetFilterButton"
@@ -240,7 +147,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/bt_frFilter_applyButton"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_1stars"
+                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_rating_stars"
                     tools:text="Borrar filtros" />
 
                 <com.google.android.material.button.MaterialButton
