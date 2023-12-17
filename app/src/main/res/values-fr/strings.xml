@@ -27,4 +27,5 @@
     <string name="share">Partager</string>
     <string name="filter">Filtrer les produits</string>
     <string name="share_text">Regarde ce que j\'ai trouvé: %1s %2s %3s</string>
+    <string name="apply_filter">Appliquer un filtre</string>
 </resources>
