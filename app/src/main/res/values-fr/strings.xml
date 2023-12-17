@@ -29,4 +29,5 @@
     <string name="share_text">Regarde ce que j\'ai trouvé: %1s %2s %3s</string>
     <string name="apply_filter">Appliquer les filtres</string>
     <string name="delete_filters">Effacer les filtres</string>
+    <string name="frProductDetail_toolbar_title">Detail du produit</string>
 </resources>

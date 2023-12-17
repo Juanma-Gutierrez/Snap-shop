@@ -33,222 +33,230 @@
                 app:titleTextColor="@color/white" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/margin_max">
+            android:layout_height="match_parent">
 
-            <RadioGroup
-                android:id="@+id/rg_frFilter_category_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_max"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tb_frFilter_topBar">
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_frFilter_womans"
-                    style="@style/Widget.Material3.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/women_s_clothing"
-                    android:textColor="@color/md_theme_light_primary"
-                    tools:text="Ropa de mujer" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_frFilter_men"
-                    style="@style/Widget.Material3.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/men_s_clothing"
-                    android:textColor="@color/md_theme_light_primary"
-                    tools:text="Ropa de hombre" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_frFilter_jewelry"
-                    style="@style/Widget.Material3.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/jewelry"
-                    android:textColor="@color/md_theme_light_primary"
-                    tools:text="Joyería" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_frFilter_electronics"
-                    style="@style/Widget.Material3.CompoundButton.RadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/electronics"
-                    android:textColor="@color/md_theme_light_primary"
-                    tools:text="Electrónica" />
-            </RadioGroup>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_frFilter_minPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_min"
-                android:layout_marginTop="@dimen/margin_max"
-                android:text="0€"
-                android:textColor="@color/md_theme_light_primary"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rg_frFilter_category_group"
-                tools:text="0€" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_frFilter_maxPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_max"
-                android:layout_marginRight="@dimen/margin_min"
-                android:text="1000€"
-                android:textColor="@color/md_theme_light_primary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rg_frFilter_category_group"
-                tools:text="1000€" />
-
-            <androidx.appcompat.widget.AppCompatSeekBar
-                android:id="@+id/sb_frFilter_price"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_frFilter_minPrice" />
+                android:layout_height="match_parent"
+                android:padding="@dimen/margin_max">
 
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/rb_frFilter_5stars"
-                style="@style/Widget.AppCompat.RatingBar.Indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_max"
-                android:rating="5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sb_frFilter_price" />
+                <RadioGroup
+                    android:id="@+id/rg_frFilter_category_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/margin_max"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tb_frFilter_topBar">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_frFilter_check5stars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_mid"
-                android:src="@drawable/baseline_check_circle_outline_24"
-                android:tint="@color/md_theme_light_primary"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_5stars"
-                app:layout_constraintStart_toEndOf="@+id/rb_frFilter_5stars"
-                app:layout_constraintTop_toTopOf="@+id/rb_frFilter_5stars" />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_frFilter_womans"
+                        style="@style/Widget.Material3.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/women_s_clothing"
+                        android:textColor="@color/md_theme_light_primary"
+                        app:buttonTint="@color/md_theme_light_primary"
+                        tools:text="Ropa de mujer" />
 
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/rb_frFilter_4stars"
-                style="@style/Widget.AppCompat.RatingBar.Indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rating="4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_5stars" />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_frFilter_men"
+                        style="@style/Widget.Material3.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/men_s_clothing"
+                        android:textColor="@color/md_theme_light_primary"
+                        app:buttonTint="@color/md_theme_light_primary"
+                        tools:text="Ropa de hombre" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_frFilter_check4stars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_mid"
-                android:src="@drawable/baseline_check_circle_outline_24"
-                android:tint="@color/md_theme_light_primary"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_4stars"
-                app:layout_constraintStart_toEndOf="@+id/rb_frFilter_4stars"
-                app:layout_constraintTop_toTopOf="@+id/rb_frFilter_4stars" />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_frFilter_jewelry"
+                        style="@style/Widget.Material3.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jewelry"
+                        android:textColor="@color/md_theme_light_primary"
+                        app:buttonTint="@color/md_theme_light_primary"
+                        tools:text="Joyería" />
 
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/rb_frFilter_3stars"
-                style="@style/Widget.AppCompat.RatingBar.Indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rating="3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_4stars" />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rb_frFilter_electronics"
+                        style="@style/Widget.Material3.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/electronics"
+                        android:textColor="@color/md_theme_light_primary"
+                        app:buttonTint="@color/md_theme_light_primary"
+                        tools:text="Electrónica" />
+                </RadioGroup>
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_frFilter_check3stars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_mid"
-                android:src="@drawable/baseline_check_circle_outline_24"
-                android:tint="@color/md_theme_light_primary"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_3stars"
-                app:layout_constraintStart_toEndOf="@+id/rb_frFilter_3stars"
-                app:layout_constraintTop_toTopOf="@+id/rb_frFilter_3stars" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_frFilter_minPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_min"
+                    android:layout_marginTop="@dimen/margin_max"
+                    android:text="0€"
+                    android:textColor="@color/md_theme_light_primary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rg_frFilter_category_group"
+                    tools:text="0€" />
 
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/rb_frFilter_2stars"
-                style="@style/Widget.AppCompat.RatingBar.Indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rating="2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_3stars" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_frFilter_maxPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_max"
+                    android:layout_marginRight="@dimen/margin_min"
+                    android:text="1000€"
+                    android:textColor="@color/md_theme_light_primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rg_frFilter_category_group"
+                    tools:text="1000€" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_frFilter_check2stars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_mid"
-                android:src="@drawable/baseline_check_circle_outline_24"
-                android:tint="@color/md_theme_light_primary"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_2stars"
-                app:layout_constraintStart_toEndOf="@+id/rb_frFilter_2stars"
-                app:layout_constraintTop_toTopOf="@+id/rb_frFilter_2stars" />
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/sb_frFilter_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_frFilter_minPrice" />
 
-            <androidx.appcompat.widget.AppCompatRatingBar
-                android:id="@+id/rb_frFilter_1stars"
-                style="@style/Widget.AppCompat.RatingBar.Indicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rating="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_2stars" />
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rb_frFilter_5stars"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_max"
+                    android:rating="5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sb_frFilter_price" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_frFilter_check1stars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_mid"
-                android:src="@drawable/baseline_check_circle_outline_24"
-                android:tint="@color/md_theme_light_primary"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_1stars"
-                app:layout_constraintStart_toEndOf="@+id/rb_frFilter_1stars"
-                app:layout_constraintTop_toTopOf="@+id/rb_frFilter_1stars" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_frFilter_check5stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mid"
+                    android:src="@drawable/baseline_check_circle_outline_24"
+                    android:tint="@color/md_theme_light_primary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_5stars"
+                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_5stars"
+                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_5stars" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/bt_frFilter_resetFilterButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_max"
-                android:backgroundTint="@color/md_theme_light_tertiary"
-                android:text="@string/delete_filters"
-                app:layout_constraintEnd_toStartOf="@+id/bt_frFilter_applyButton"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_1stars"
-                tools:text="Borrar filtros" />
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rb_frFilter_4stars"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_5stars" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/bt_frFilter_applyButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/apply_filter"
-                app:layout_constraintBottom_toBottomOf="@+id/bt_frFilter_resetFilterButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/bt_frFilter_resetFilterButton"
-                app:layout_constraintTop_toTopOf="@+id/bt_frFilter_resetFilterButton"
-                app:layout_constraintVertical_bias="0.0"
-                tools:text="Aplicar filtros" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_frFilter_check4stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mid"
+                    android:src="@drawable/baseline_check_circle_outline_24"
+                    android:tint="@color/md_theme_light_primary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_4stars"
+                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_4stars"
+                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_4stars" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rb_frFilter_3stars"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_4stars" />
 
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_frFilter_check3stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mid"
+                    android:src="@drawable/baseline_check_circle_outline_24"
+                    android:tint="@color/md_theme_light_primary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_3stars"
+                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_3stars"
+                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_3stars" />
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rb_frFilter_2stars"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_3stars" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_frFilter_check2stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mid"
+                    android:src="@drawable/baseline_check_circle_outline_24"
+                    android:tint="@color/md_theme_light_primary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_2stars"
+                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_2stars"
+                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_2stars" />
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rb_frFilter_1stars"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_2stars" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_frFilter_check1stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_mid"
+                    android:src="@drawable/baseline_check_circle_outline_24"
+                    android:tint="@color/md_theme_light_primary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rb_frFilter_1stars"
+                    app:layout_constraintStart_toEndOf="@+id/rb_frFilter_1stars"
+                    app:layout_constraintTop_toTopOf="@+id/rb_frFilter_1stars" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bt_frFilter_resetFilterButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_max"
+                    android:backgroundTint="@color/md_theme_light_tertiary"
+                    android:text="@string/delete_filters"
+                    app:layout_constraintEnd_toStartOf="@+id/bt_frFilter_applyButton"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_1stars"
+                    tools:text="Borrar filtros" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bt_frFilter_applyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apply_filter"
+                    app:layout_constraintBottom_toBottomOf="@+id/bt_frFilter_resetFilterButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/bt_frFilter_resetFilterButton"
+                    app:layout_constraintTop_toTopOf="@+id/bt_frFilter_resetFilterButton"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="Aplicar filtros" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </FrameLayout>

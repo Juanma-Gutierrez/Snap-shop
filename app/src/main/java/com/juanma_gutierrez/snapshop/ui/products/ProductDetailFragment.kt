@@ -91,7 +91,7 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
                 }
             }
         }
-        binding.tbTopbarDetail?.setOnMenuItemClickListener {
+        binding.tbFrDetailTopBar?.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.tb_topbar_share_button -> {
                     onShare(selectedProduct)

@@ -29,5 +29,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="apply_filter">Apply filters</string>
     <string name="delete_filters">Delete filters</string>
+    <string name="frProductDetail_toolbar_title">Product detail</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

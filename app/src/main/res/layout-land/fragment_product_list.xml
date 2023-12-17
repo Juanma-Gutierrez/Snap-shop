@@ -6,47 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".ui.products.ProductListFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/top_tb_list_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_menu_height"
-        android:background="@color/md_theme_light_inversePrimary"
-        android:icon="@drawable/baseline_share_24"
-        android:iconTint="@color/white"
-        android:title="@string/share"
-        app:menu="@menu/product_list_menu"
-        app:showAsAction="always" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fragment_product_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/top_menu_height"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="@integer/num_columns_landscape"
-        tools:listitem="@layout/product_item" />
-
     <LinearLayout
-        android:id="@+id/llIsLoading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/MaterialAlertDialog.Material3.Title.Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/margin_max"
-            android:text="@string/fr_productList_loading" />
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/tb_frFilter_topBar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/top_tb_list_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/md_theme_light_tertiary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:menu="@menu/product_list_menu"
+                app:minHeight="?attr/actionBarSize"
+                app:showAsAction="always" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_fragment_product_list"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminate="true" />
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="@integer/num_columns_landscape"
+            tools:listitem="@layout/product_item" />
+
+        <LinearLayout
+            android:id="@+id/llIsLoading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/md_theme_light_primary"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/MaterialAlertDialog.Material3.Title.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_max"
+                android:text="@string/fr_productList_loading"
+                android:textColor="@color/white" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:trackColor="@color/white" />
+        </LinearLayout>
+
     </LinearLayout>
-
-
 </FrameLayout>
