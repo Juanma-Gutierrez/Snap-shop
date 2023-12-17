@@ -31,17 +31,6 @@ class ProductListFragment @Inject constructor() : Fragment() {
     private lateinit var binding: FragmentProductListBinding
     private val viewModel: ProductListViewModel by viewModels()
 
-    /**
-     * Método invocado cuando la actividad asociada al fragmento ha sido creada.
-     * Se utiliza para mostrar la barra superior (toolbar) de la actividad principal, si está presente.
-     *
-     * @param savedInstanceState El estado de la instancia guardada de la actividad.
-     */
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val mainActivity = activity as? MainActivity
-        mainActivity?.showTopListToolBar("list")
-    }
 
     /**
      * Crea y retorna la vista asociada al fragment.

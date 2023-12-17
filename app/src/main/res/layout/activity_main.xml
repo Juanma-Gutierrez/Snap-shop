@@ -4,25 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/top_tb_list_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_menu_height"
-        app:menu="@menu/top_product_list_toolbar">
-    </com.google.android.material.appbar.MaterialToolbar>
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/top_tb_detail_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_menu_height"
-        app:menu="@menu/top_product_detail_toolbar">
-    </com.google.android.material.appbar.MaterialToolbar>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/top_menu_height"
         android:layout_marginBottom="@dimen/bottom_bar_menu_height"
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_navigation" />

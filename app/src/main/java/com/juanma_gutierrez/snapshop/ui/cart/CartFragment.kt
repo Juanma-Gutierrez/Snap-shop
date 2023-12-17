@@ -32,18 +32,6 @@ class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
 
     /**
-     * Método invocado cuando la actividad asociada al fragmento ha sido creada.
-     * Se utiliza para ocultar la barra superior (toolbar) de la actividad principal, si está presente.
-     *
-     * @param savedInstanceState El estado de la instancia guardada de la actividad.
-     */
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val mainActivity = activity as? MainActivity
-        mainActivity?.hideToplistToolBar()
-    }
-
-    /**
      * Método llamado al crear la vista del fragmento.
      */
     override fun onCreateView(

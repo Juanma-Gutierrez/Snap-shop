@@ -6,16 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.products.ProductListFragment">
 
-
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/top_tb_list_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_menu_height"
+        android:background="@color/md_theme_light_inversePrimary"
+        android:icon="@drawable/baseline_share_24"
+        android:iconTint="@color/white"
+        android:title="@string/share"
+        app:menu="@menu/top_product_list_toolbar"
+        app:showAsAction="always" />
 
     <LinearLayout
         android:id="@+id/llIsLoading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/top_menu_height"
         android:background="@color/md_theme_light_primary"
         android:gravity="center"
-        android:visibility="visible"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
+
 
         <TextView
             style="@style/MaterialAlertDialog.Material3.Title.Text"
@@ -35,6 +46,7 @@
         android:id="@+id/rv_fragment_product_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/top_menu_height"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="@integer/num_columns"
         tools:listitem="@layout/product_item" />

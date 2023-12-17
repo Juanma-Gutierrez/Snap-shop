@@ -23,18 +23,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class UserFragment : Fragment() {
 
     /**
-     * Método invocado cuando la actividad asociada al fragmento ha sido creada.
-     * Se utiliza para ocultar la barra superior (toolbar) de la actividad principal, si está presente.
-     *
-     * @param savedInstanceState El estado de la instancia guardada de la actividad.
-     */
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val mainActivity = activity as? MainActivity
-        mainActivity?.hideToplistToolBar()
-    }
-
-    /**
      * Método invocado cuando la actividad está creando su instancia.
      * Se utiliza para cargar la información del usuario con identificador "1".
      *
