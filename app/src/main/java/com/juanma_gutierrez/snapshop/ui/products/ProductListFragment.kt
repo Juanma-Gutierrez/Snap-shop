@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -30,9 +31,9 @@ import javax.inject.Inject
 class ProductListFragment @Inject constructor() : Fragment() {
     @Inject
     lateinit var cartSvc: CartViewModel
-    private lateinit var binding: FragmentProductListBinding
-    private val viewModel: ProductListViewModel by viewModels()
     lateinit var filterSvc: FilterService
+    private val viewModel: ProductListViewModel by viewModels()
+    private lateinit var binding: FragmentProductListBinding
 
     /**
      * Crea y retorna la vista asociada al fragment.
@@ -58,24 +59,42 @@ class ProductListFragment @Inject constructor() : Fragment() {
                     findNavController(view).navigate(R.id.action_productListFragment_to_filterFragment)
                     true
                 }
-
                 else -> false
             }
         }
+        binding.llIsLoading.visibility = VISIBLE
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.productsList.collect { originalList ->
+
                     val filteredList = originalList.filter { product ->
                         // Aplica el filtro al listado antes de pasarlo al adaptador
-                        //product.price <= filterSvc.maxPrice
                         productInFilter(product)
                     }
+                    binding.llIsLoading.visibility = GONE
                     val adapter = ProductAdapter(filteredList, ::onDetail, cartSvc)
                     binding.rvFragmentProductList.adapter = adapter
-
                 }
             }
         }
+    }
+
+    private fun productInFilter(product: Product): Boolean {
+        var valid = true
+        val filterSvc = FilterService
+        // Filtra por precio
+        if (product.price > filterSvc.maxPrice) {
+            valid = false
+        }
+        // Filtra por categoría
+        if (!(product.category.equals(filterSvc.category) || filterSvc.category.equals("none"))) {
+            valid = false
+        }
+        // Filtra por puntuación
+        if (product.rating!!.rate!! < filterSvc.rating) {
+            valid = false
+        }
+        return valid
     }
 }
 
@@ -89,21 +108,3 @@ fun onDetail(product: Product, view: View) {
     navController.navigate(R.id.action_productListFragment_to_productDetailFragment, bundle)
 }
 
-private fun productInFilter(product: Product): Boolean {
-
-    var valid = true
-    val filterSvc = FilterService
-    // Filtra por precio
-    if (product.price > filterSvc.maxPrice) {
-        valid = false
-    }
-    // Filtra por categoría
-    if (!(product.category.equals(filterSvc.category) || filterSvc.category.equals("none"))) {
-        valid = false
-    }
-    // Filtra por puntuación
-    if (product.rating!!.rate!! < filterSvc.rating) {
-        valid = false
-    }
-    return valid
-}

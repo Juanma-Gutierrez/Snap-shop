@@ -95,35 +95,33 @@
                     android:id="@+id/tv_frFilter_minPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_min"
-                    android:layout_marginTop="@dimen/margin_max"
                     android:text="0€"
+                    android:layout_marginLeft="@dimen/margin_mid"
                     android:textColor="@color/md_theme_light_primary"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rg_frFilter_category_group"
+                    app:layout_constraintStart_toEndOf="@+id/rg_frFilter_category_group"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="0€" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_frFilter_maxPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_max"
                     android:layout_marginRight="@dimen/margin_min"
                     android:text="1000€"
                     android:textColor="@color/md_theme_light_primary"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rg_frFilter_category_group"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="1000€" />
 
                 <androidx.appcompat.widget.AppCompatSeekBar
                     android:id="@+id/sb_frFilter_price"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:max="1000"
                     android:progress="1000"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/rg_frFilter_category_group"
                     app:layout_constraintTop_toBottomOf="@+id/tv_frFilter_minPrice" />
 
                 <androidx.appcompat.widget.AppCompatRatingBar
@@ -134,7 +132,7 @@
                     android:layout_marginTop="@dimen/margin_max"
                     android:rating="5"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/rg_frFilter_category_group"
                     app:layout_constraintTop_toBottomOf="@+id/sb_frFilter_price" />
 
 
@@ -147,7 +145,7 @@
                     android:text="@string/delete_filters"
                     app:layout_constraintEnd_toStartOf="@+id/bt_frFilter_applyButton"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/rg_frFilter_category_group"
                     app:layout_constraintTop_toBottomOf="@+id/rb_frFilter_rating_stars"
                     tools:text="Borrar filtros" />
 

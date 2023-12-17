@@ -26,8 +26,9 @@
     <string name="user_data">Informations de l\'utilisateur</string>
     <string name="share">Partager</string>
     <string name="filter">Filtrer les produits</string>
-    <string name="share_text">Regarde ce que j\'ai trouvé: %1s %2s %3s</string>
+    <string name="share_text">%1s Regarde ce que j\'ai trouvé: %2s %3s %4s</string>
     <string name="apply_filter">Appliquer les filtres</string>
     <string name="delete_filters">Effacer les filtres</string>
     <string name="frProductDetail_toolbar_title">Detail du produit</string>
+    <string name="snapshop_title">Snapshop: Votre boutique en ligne</string>
 </resources>

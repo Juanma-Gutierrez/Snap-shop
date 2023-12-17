@@ -25,10 +25,9 @@
     <string name="user_data">User data</string>
     <string name="share">Share</string>
     <string name="filter">Filter products</string>
-    <string name="share_text">Look  what I found: %1s %2s %3s</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="share_text">%1s Look  what I found: %2s %3s %4s</string>
     <string name="apply_filter">Apply filters</string>
     <string name="delete_filters">Delete filters</string>
     <string name="frProductDetail_toolbar_title">Product detail</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="snapshop_title">SnapShop: Your online shop</string>
 </resources>

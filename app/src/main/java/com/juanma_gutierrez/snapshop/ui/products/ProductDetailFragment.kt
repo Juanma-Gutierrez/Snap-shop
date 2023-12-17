@@ -97,6 +97,7 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
                     onShare(selectedProduct)
                     true // Devuelve true para indicar que el evento ha sido manejado
                 }
+
                 else -> false
             }
         }
@@ -108,11 +109,13 @@ class ProductDetailFragment @Inject constructor() : Fragment() {
      * @param selectedProduct El producto seleccionado que se compartirá.
      */
     private fun onShare(selectedProduct: Product) {
+        val svc = Services()
         val shareText = getString(
             R.string.share_text,
-            selectedProduct.title,
-            selectedProduct.category,
-            selectedProduct.price.toString()
+            getString(R.string.snapshop_title) + "\n",
+            "\n" + selectedProduct.title + "\n",
+            selectedProduct.category + "\n",
+            svc.formatPrice(selectedProduct.price)
         )
         val intent = Intent().apply {
             action = Intent.ACTION_SEND
