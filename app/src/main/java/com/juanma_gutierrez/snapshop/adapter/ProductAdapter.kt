@@ -13,6 +13,7 @@ import com.juanma_gutierrez.snapshop.ui.cart.CartViewModel
 import com.juanma_gutierrez.snapshop.data.repository.Product
 import com.juanma_gutierrez.snapshop.databinding.ProductItemBinding
 import com.juanma_gutierrez.snapshop.services.Services
+import com.juanma_gutierrez.snapshop.ui.filter.FilterService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

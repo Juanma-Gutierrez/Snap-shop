@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.juanma_gutierrez.snapshop.R
 import com.juanma_gutierrez.snapshop.databinding.ActivityMainBinding
+import com.juanma_gutierrez.snapshop.ui.filter.FilterService
 import com.juanma_gutierrez.snapshop.ui.products.ProductDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 

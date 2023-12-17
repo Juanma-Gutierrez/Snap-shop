@@ -36,19 +36,15 @@ class FilterFragment : Fragment() {
                         .navigate(R.id.action_filterFragment_to_productListFragment)
                     true
                 }
-
                 else -> false
             }
         }
-
         binding.btFrFilterApplyButton.setOnClickListener {
-            Log.d("testing", "boton aplicar")
             setFilter()
             Navigation.findNavController(view)
                 .navigate(R.id.action_filterFragment_to_productListFragment)
         }
         binding.btFrFilterResetFilterButton.setOnClickListener {
-            Log.d("testing", "boton reset")
             resetCategory()
             binding.sbFrFilterPrice.progress = 1000
             binding.rbFrFilterRatingStars.rating = 0.0f
@@ -56,7 +52,6 @@ class FilterFragment : Fragment() {
     }
 
     private fun initFilters() {
-        Log.d("testing", "Inicia los filtros")
         binding.rbFrFilterWomen.isChecked = false
         binding.rbFrFilterMen.isChecked = false
         binding.rbFrFilterJewelery.isChecked = false
@@ -72,7 +67,6 @@ class FilterFragment : Fragment() {
     }
 
     private fun resetCategory() {
-        Log.d("testing", "reset category")
         binding.rbFrFilterWomen.isChecked = false
         binding.rbFrFilterMen.isChecked = false
         binding.rbFrFilterJewelery.isChecked = false
@@ -81,7 +75,6 @@ class FilterFragment : Fragment() {
 
 
     private fun setFilter() {
-        Log.d("testing", "entra en setfilter")
         val category = getCategory()
         val maxPrice = binding.sbFrFilterPrice.progress
         val rating = binding.rbFrFilterRatingStars.rating
@@ -91,7 +84,6 @@ class FilterFragment : Fragment() {
     }
 
     private fun getCategory(): String {
-        Log.d("testing", "entra en getcategory")
         var category = "none"
         if (binding.rbFrFilterWomen.isChecked) {
             category = "women's clothing"
