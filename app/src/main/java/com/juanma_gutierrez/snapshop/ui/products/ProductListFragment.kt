@@ -49,6 +49,16 @@ class ProductListFragment @Inject constructor() : Fragment() {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.topTbListToolbar?.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.tb_topTopbar_filter_button -> {
+                    findNavController(view).navigate(R.id.action_productListFragment_to_filterFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             binding.llIsLoading.visibility = VISIBLE
             repeatOnLifecycle(Lifecycle.State.STARTED) {

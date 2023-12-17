@@ -18,6 +18,9 @@
             app:exitAnim="@anim/slide_out_top"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_bottom"/>
+        <action
+            android:id="@+id/action_productListFragment_to_filterFragment"
+            app:destination="@id/filterFragment" />
 
     </fragment>
     <fragment
@@ -40,4 +43,9 @@
         android:name="com.juanma_gutierrez.snapshop.ui.user.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.juanma_gutierrez.snapshop.ui.filter.FilterFragment"
+        android:label="fragment_filter"
+        tools:layout="@layout/fragment_filter" />
 </navigation>
